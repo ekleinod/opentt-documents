@@ -18,6 +18,27 @@ Wer mit Git umgehen kann, dann dies sogar direkt tun.
 
 ## Technische Details
 
+### Benötigte Programme
+
+Editieren
+
+- Editor Ihrer Wahl, muss UTF-8 können
+
+Multimarkdown
+
+- Multimarkdown-Programm von http://fletcherpenney.net/multimarkdown/
+
+LaTeX
+
+- LaTeX-Distribution (z.B. MiKTeX http://www.miktex.org/ oder TeXLive http://www.tug.org/texlive/)
+- Basis-Stil von https://github.com/ekleinod/basis
+
+Ant
+
+- zur Automatisierung der Dokumenterzeugung von http://ant.apache.org/
+
+### Git-Repository
+
 Kurze Details zum Aufbau des Git-Repositories:
 Die Aufteilung in Zweige orientiert sich am Git-Branching-Modell, das in http://nvie.com/posts/a-successful-git-branching-model/ beschrieben wird.
 
@@ -32,4 +53,5 @@ Zusätzlich werden bei Bedarf folgende Zweige genutzt:
 - `feature-*` - für das Schreiben eines bestimmten Features/Textteils
 - `release-*` - Synchronisation fertiger Versionen zwischen `develop` und `master`
 - `hotfix-*` - schnelle Fehlerbehebung
+
 
