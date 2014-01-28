@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="OpenTT-Regeln" default="all" basedir=".">
+
+	<property name="file:target" value="${ant.project.name}" />
+	<property name="path:release" value="../Fertige_Dokumente/" />
+	<property name="file:log" value="build.log" />
+
+	<!-- create all files -->
+	<target name="all" depends="clearLog" description="Alle Ausgangsformate erzeugen.">
+
+		<antcall target="mmd2pdf">
+			<param name="file:prefix" value="${file:prefix:lb}" />
+			<param name="jar:req2mmd" value="Req2LBmmd.jar" />
+		</antcall>
+
+		<antcall target="mmd2html" />
+
+		<antcall target="clear" />
+		<antcall target="clearLog" />
+
+	</target>
+
+	<!-- MMD -> PDF -->
+	<target name="mmd2pdf" description="PDF erzeugen.">
+		<antcall target="mmd2tex" />
+		<antcall target="pdf" />
+		<antcall target="pdf" />
+		<antcall target="pdf" />
+	</target>
+
+	<!-- MMD2TeX -->
+	<target name="mmd2tex">
+		<exec executable="multimarkdown" output="${file:target}.tex">
+			<arg line="-t latex ${file:target}.mmd" />
+		</exec>
+	</target>
+
+	<!-- TeX2PDF -->
+	<target name="pdf">
+		<exec executable="pdflatex" output="${file:log}" append="true">
+			<arg line="-interaction=nonstopmode -output-directory ${path:release} ${file:target}.tex" />
+		</exec>
+	</target>
+
+	<!-- MMD2HTML -->
+	<target name="mmd2html">
+		<exec executable="multimarkdown" output="${path:release}${file:target}.html">
+			<arg line="-t html ${file:target}.mmd" />
+		</exec>
+	</target>
+
+	<!-- remove temporary files -->
+	<target name="clear">
+		<echo message="Remove temporary files." />
+		<defaultexcludes remove="**/*~" />
+		<delete>
+			<fileset dir="." includes="**/*.aux, **/*.bak.vthought, **/*.bak, **/*.bbl, **/*.blg, **/*.changes, **/*.dvi, **/*.glo, **/*.idx, **/*.ilg, **/*.ind, **/*.loc, **/*.lof, **/*.lot, **/*.lop, **/*.nav, **/*.out, **/*.ps, **/*.snm, **/*.toc, **/*.url, **/*.*~"/>
+			<fileset dir="${path:release}" includes="**/*.aux, **/*.bak.vthought, **/*.bak, **/*.bbl, **/*.blg, **/*.changes, **/*.dvi, **/*.glo, **/*.idx, **/*.ilg, **/*.ind, **/*.loc, **/*.lof, **/*.lot, **/*.lop, **/*.nav, **/*.out, **/*.ps, **/*.snm, **/*.toc, **/*.url, **/*.*~"/>
+		</delete>
+		<defaultexcludes default="true" />
+		<delete file="${file:target}.tex" />
+	</target>
+
+	<!-- clear log -->
+	<target name="clearLog">
+		<echo message="" file="${file:log}" />
+		<echo message="" file="${path:release}${file:log}" />
+		<delete>
+			<fileset dir="." includes="**/*.log" />
+			<fileset dir="${path:release}" includes="**/*.log" />
+		</delete>
+	</target>
+
+</project>
+
+<!-- EOF -->
+
