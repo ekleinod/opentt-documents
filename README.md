@@ -1,6 +1,6 @@
 # OpenTT-Documents
 
-For other languages see below.
+More languages see below.
 
 ## Deutsch
 
