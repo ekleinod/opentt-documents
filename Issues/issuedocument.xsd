@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+XSD Schema for an issuedocument file
+
+v0.2.0
+
+Ekkart Kleinod
+ekleinod@edgesoft.de
+2014
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+						xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+						jxb:version="2.0">
+
+	<xsd:element name="issuedocument" type="IssueDocumentType"/>
+
+	<xsd:complexType name="IssueDocumentType">
+		<xsd:sequence>
+			<xsd:element name="info" type="InfoType" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="issue" type="IssueType" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="document" type="DocumentType" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="author" type="AuthorType" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InfoType">
+		<xsd:sequence>
+			<xsd:element name="creation" type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="lastchange" type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="version" type="VersionType" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="IssueType">
+		<xsd:sequence>
+			<xsd:element name="issuecontent" type="IssueContentType" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="documentref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="seeref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="RefType">
+		<xsd:attribute name="idref" type="xsd:IDREF" use="required" />
+	</xsd:complexType>
+
+</xsd:schema>
+
+<!-- EOF -->
+
