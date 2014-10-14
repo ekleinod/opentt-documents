@@ -7,7 +7,7 @@
 
 	<info>
 		<creation>2014-10-13T12:45:00.000+02:00</creation>
-		<lastchange>2014-10-13T13:40:00.000+02:00</lastchange>
+		<lastchange>2014-10-15T00:55:00.000+02:00</lastchange>
 		<version>
 			<major>0</major>
 			<minor>2</minor>
@@ -15,19 +15,28 @@
 		</version>
 	</info>
 
-	<issues>
-		<issue id="q.1">
+	<issue id="q.1">
 
-			<issuecontent lang="de">
-				<title>Einheitliche Hosen/Röckchen</title>
+		<issuecontent lang="de">
+			<title>Einheitliche Hosen/Röckchen</title>
 
-				<query>
-					Mannschaft A tritt in schwarzen Hosen zum Punktspiel an.
-					Ein Spieler vom Mannschaft A hat Hosen der Marke Y im Gegensatz zu den anderen Spielern, die Hosen der Marke Y tragen.
-					Die Hosen unterscheiden sich durch die Herstellerkennzeichnungen: ein "Swoosh" bei Marke X, drei Streifen bei Marke Y.
-				</query>
+			<query>
+				Mannschaft A tritt in schwarzen Hosen zum Punktspiel an.
+				Ein Spieler vom Mannschaft A hat Hosen der Marke Y im Gegensatz zu den anderen Spielern, die Hosen der Marke Y tragen.
+				Die Hosen unterscheiden sich durch die Herstellerkennzeichnungen: ein "Swoosh" bei Marke X, drei Streifen bei Marke Y.
+			</query>
 
-				<question>Wie entscheiden Sie als OSR über die Zulässigkeit der Kleidung</question>
+			<longanswer>
+				<para>
+					Die Einheitlichkeit von Hosen bzw. Röckchen ist auch dann gegeben, wenn diese von unterschiedlichen Herstellern bezogen wurden, solange die Farben identisch sind.
+					Herstellerapplikationen wie z.B. drei weiße Streifen, ein sog. Swoosh o.ä. stören die Einheitlichkeit nicht.
+				</para>
+			</longanswer>
+
+			<origin>Regelanfrage 2013</origin>
+
+			<qna>
+				<question>Wie entscheiden Sie als OSR über die Zulässigkeit der Kleidung?</question>
 				<answer>
 					Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, müssen alle Spieler Hosen derselben Marke anziehen. Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
 				</answer>
@@ -37,42 +46,34 @@
 				<answer>
 					Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, reicht es, die Markenkennzeichnungen zu verdecken, z.B. durch Klebeband. Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
 				</answer>
+			</qna>
 
-				<longanswer>
-					<para>
-						Die Einheitlichkeit von Hosen bzw. Röckchen ist auch dann gegeben, wenn diese von unterschiedlichen Herstellern bezogen wurden, solange die Farben identisch sind.
-						Herstellerapplikationen wie z.B. drei weiße Streifen, ein sog. Swoosh o.ä. stören die Einheitlichkeit nicht.
-					</para>
-				</longanswer>
-				<origin>Regelanfrage 2013</origin>
-			</issuecontent>
+			<tag>Kleidung</tag>
+			<tag>OSR</tag>
+		</issuecontent>
 
-			<issuecontent lang="en">
-				<title>Uniform Trousers</title>
-			</issuecontent>
+		<issuecontent lang="en">
+			<title>Uniform Trousers</title>
+		</issuecontent>
 
-			<documentref idref="dttb.regelauslegungen.2014" />
+		<documentref idref="dttb.regelauslegungen.2014" />
 
-			<seeref idref="Rules.B.2.2.8" />
-		</issue>
-	</issues>
+		<seeref idref="Rules.B.2.2.8" />
 
-	<documents>
-		<document id="dttb.regelauslegungen.2014">
-			<documentcontent lang="de">
-				<title>Regelauslegungen für den Bereich des DTTB</title>
-			</documentcontent>
-			<authorref idref="dttb.rsr" />
-		</document>
-	</documents>
+	</issue>
 
-	<authors>
-		<author id="dttb.rsr">
-			<authorcontent lang="de">
-				<title>Ressort Schiedsrichter des DTTB</title>
-			</authorcontent>
-		</author>
-	</authors>
+	<document id="dttb.regelauslegungen.2014">
+		<documentcontent lang="de">
+			<title>Regelauslegungen für den Bereich des DTTB</title>
+		</documentcontent>
+		<authorref idref="dttb.rsr" />
+	</document>
+
+	<author id="dttb.rsr">
+		<authorcontent lang="de">
+			<title>Ressort Schiedsrichter des DTTB</title>
+		</authorcontent>
+	</author>
 
 </issuedocument>
 
