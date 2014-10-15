@@ -34,17 +34,127 @@ ekleinod@edgesoft.de
 	</xsd:complexType>
 
 	<xsd:complexType name="IssueType">
+		<xsd:complexContent>
+			<xsd:extension base="IDType">
+				<xsd:sequence>
+					<xsd:element name="issuecontent" type="IssueContentType" minOccurs="1" maxOccurs="unbounded" />
+					<xsd:element name="documentref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="seeref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="IssueContentType">
+		<xsd:complexContent>
+			<xsd:extension base="LangType">
+				<xsd:sequence>
+					<xsd:element name="title" type="xsd:string" minOccurs="1" maxOccurs="1" />
+					<xsd:element name="query" type="ParasType" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="longanswer" type="ParasType" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="origin" type="ParasType" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="qna" type="QNAType" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="tag" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="QNAType">
 		<xsd:sequence>
-			<xsd:element name="issuecontent" type="IssueContentType" minOccurs="1" maxOccurs="unbounded" />
-			<xsd:element name="documentref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
-			<xsd:element name="seeref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="question" type="ParasType" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="answer" type="AnswerType" minOccurs="0" maxOccurs="unbounded" />
 		</xsd:sequence>
-		<xsd:attribute name="id" type="xsd:ID" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="AnswerType">
+		<xsd:complexContent>
+			<xsd:extension base="ParasType">
+				<xsd:attribute name="correct" type="xsd:boolean" use="optional" />
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="DocumentType">
+		<xsd:complexContent>
+			<xsd:extension base="IDType">
+				<xsd:sequence>
+					<xsd:element name="documentcontent" type="DocumentContentType" minOccurs="1" maxOccurs="unbounded" />
+					<xsd:element name="authorref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="DocumentContentType">
+		<xsd:complexContent>
+			<xsd:extension base="LangType">
+				<xsd:sequence>
+					<xsd:element name="title" type="xsd:string" minOccurs="1" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="AuthorType">
+		<xsd:complexContent>
+			<xsd:extension base="IDType">
+				<xsd:sequence>
+					<xsd:element name="authorcontent" type="AuthorContentType" minOccurs="1" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="AuthorContentType">
+		<xsd:complexContent>
+			<xsd:extension base="LangType">
+				<xsd:sequence>
+					<xsd:element name="title" type="xsd:string" minOccurs="1" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
 	</xsd:complexType>
 
 	<xsd:complexType name="RefType">
-		<xsd:attribute name="idref" type="xsd:IDREF" use="required" />
+		<xsd:attribute name="idref" type="xsd:string" use="required" />
 	</xsd:complexType>
+
+	<xsd:complexType name="IDType" abstract="true">
+		<xsd:attribute name="id" type="xsd:ID" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="LangType" abstract="true">
+		<xsd:attribute name="lang" type="xsd:language" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="ParasType">
+		<xsd:sequence>
+			<xsd:element name="para" type="TextWithLinksType" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TextWithLinksType" mixed="true">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="seeref" type="RefType" />
+			<xsd:element name="documentref" type="RefType" />
+			<xsd:element name="authorref" type="RefType" />
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="VersionType">
+		<xsd:sequence>
+			<xsd:element name="major" type="IntGreaterNull" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="minor" type="IntGreaterNull" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="patch" type="IntGreaterNull" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="IntGreaterNull">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0" />
+		</xsd:restriction>
+	</xsd:simpleType>
 
 </xsd:schema>
 

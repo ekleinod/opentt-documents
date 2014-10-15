@@ -21,9 +21,11 @@
 			<title>Einheitliche Hosen/Röckchen</title>
 
 			<query>
-				Mannschaft A tritt in schwarzen Hosen zum Punktspiel an.
-				Ein Spieler vom Mannschaft A hat Hosen der Marke Y im Gegensatz zu den anderen Spielern, die Hosen der Marke Y tragen.
-				Die Hosen unterscheiden sich durch die Herstellerkennzeichnungen: ein "Swoosh" bei Marke X, drei Streifen bei Marke Y.
+				<para>
+					Mannschaft A tritt in schwarzen Hosen zum Punktspiel an.
+					Ein Spieler vom Mannschaft A hat Hosen der Marke Y im Gegensatz zu den anderen Spielern, die Hosen der Marke Y tragen.
+					Die Hosen unterscheiden sich durch die Herstellerkennzeichnungen: ein "Swoosh" bei Marke X, drei Streifen bei Marke Y.
+				</para>
 			</query>
 
 			<longanswer>
@@ -33,18 +35,26 @@
 				</para>
 			</longanswer>
 
-			<origin>Regelanfrage 2013</origin>
+			<origin><para>Regelanfrage 2013</para></origin>
 
 			<qna>
-				<question>Wie entscheiden Sie als OSR über die Zulässigkeit der Kleidung?</question>
+				<question><para>Wie entscheiden Sie als OSR über die Zulässigkeit der Kleidung?</para></question>
 				<answer>
-					Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, müssen alle Spieler Hosen derselben Marke anziehen. Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
+					<para>
+						Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, müssen alle Spieler Hosen derselben Marke anziehen.
+						Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
+					</para>
 				</answer>
 				<answer correct="true">
-					Die Einheitlichkeit wird nicht gestört, Mannschaft A kann spielen.
+					<para>
+						Die Einheitlichkeit wird nicht gestört, Mannschaft A kann spielen.
+					</para>
 				</answer>
 				<answer>
-					Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, reicht es, die Markenkennzeichnungen zu verdecken, z.B. durch Klebeband. Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
+					<para>
+						Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, reicht es, die Markenkennzeichnungen zu verdecken, z.B. durch Klebeband.
+						Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
+					</para>
 				</answer>
 			</qna>
 
