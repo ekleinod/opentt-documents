@@ -68,7 +68,7 @@
 
 		<documentref idref="dttb.regelauslegungen.2014" />
 
-		<seeref idref="Rules.B.2.2.8" />
+		<rulesref idref="Rules.B.2.2.8" />
 
 	</issue>
 

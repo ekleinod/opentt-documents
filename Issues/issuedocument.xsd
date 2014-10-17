@@ -39,7 +39,7 @@ ekleinod@edgesoft.de
 				<xsd:sequence>
 					<xsd:element name="issuecontent" type="IssueContentType" minOccurs="1" maxOccurs="unbounded" />
 					<xsd:element name="documentref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
-					<xsd:element name="seeref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="rulesref" type="RefType" minOccurs="0" maxOccurs="unbounded" />
 				</xsd:sequence>
 			</xsd:extension>
 		</xsd:complexContent>
@@ -117,7 +117,7 @@ ekleinod@edgesoft.de
 	</xsd:complexType>
 
 	<xsd:complexType name="RefType">
-		<xsd:attribute name="idref" type="xsd:IDRef" use="required">
+		<xsd:attribute name="idref" type="xsd:IDREF" use="required">
 			<xsd:annotation>
 				<xsd:appinfo>
 					<jxb:property>
@@ -144,7 +144,7 @@ ekleinod@edgesoft.de
 
 	<xsd:complexType name="TextWithLinksType" mixed="true">
 		<xsd:choice minOccurs="0" maxOccurs="unbounded">
-			<xsd:element name="seeref" type="RefType" />
+			<xsd:element name="rulesref" type="RefType" />
 			<xsd:element name="documentref" type="RefType" />
 			<xsd:element name="authorref" type="RefType" />
 		</xsd:choice>
