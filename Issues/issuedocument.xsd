@@ -117,7 +117,15 @@ ekleinod@edgesoft.de
 	</xsd:complexType>
 
 	<xsd:complexType name="RefType">
-		<xsd:attribute name="idref" type="xsd:string" use="required" />
+		<xsd:attribute name="idref" type="xsd:IDRef" use="required">
+			<xsd:annotation>
+				<xsd:appinfo>
+					<jxb:property>
+						<jxb:baseType name="IDType"/>
+					</jxb:property>
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:attribute>
 	</xsd:complexType>
 
 	<xsd:complexType name="IDType" abstract="true">
