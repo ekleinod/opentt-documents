@@ -14,6 +14,11 @@ ekleinod@edgesoft.de
 						xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
 						jxb:version="2.0">
 
+	<!-- allow xml:base attribute in order to avoid include errors -->
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2005/08/xml.xsd"/>
+
+	<xsd:include schemaLocation="commons.xsd"/>
+
 	<xsd:element name="rules" type="RulesType"/>
 
 	<xsd:complexType name="RulesType">
@@ -21,14 +26,7 @@ ekleinod@edgesoft.de
 			<xsd:element name="info" type="InfoType" minOccurs="1" maxOccurs="1" />
 			<xsd:element name="rule" type="RuleType" minOccurs="1" maxOccurs="unbounded" />
 		</xsd:sequence>
-	</xsd:complexType>
-
-	<xsd:complexType name="InfoType">
-		<xsd:sequence>
-			<xsd:element name="creation" type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
-			<xsd:element name="lastchange" type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
-			<xsd:element name="version" type="VersionType" minOccurs="1" maxOccurs="1" />
-		</xsd:sequence>
+		<xsd:attribute ref="xml:base" />
 	</xsd:complexType>
 
 	<xsd:complexType name="RuleType">
@@ -53,52 +51,6 @@ ekleinod@edgesoft.de
 			</xsd:extension>
 		</xsd:complexContent>
 	</xsd:complexType>
-
-	<xsd:complexType name="RefType">
-		<xsd:attribute name="idref" type="xsd:IDREF" use="required">
-			<xsd:annotation>
-				<xsd:appinfo>
-					<jxb:property>
-						<jxb:baseType name="IDType"/>
-					</jxb:property>
-				</xsd:appinfo>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
-
-	<xsd:complexType name="IDType" abstract="true">
-		<xsd:attribute name="id" type="xsd:ID" use="required" />
-	</xsd:complexType>
-
-	<xsd:complexType name="LangType" abstract="true">
-		<xsd:attribute name="lang" type="xsd:language" use="required" />
-	</xsd:complexType>
-
-	<xsd:complexType name="ParasType">
-		<xsd:sequence>
-			<xsd:element name="para" type="TextWithLinksType" minOccurs="0" maxOccurs="unbounded" />
-		</xsd:sequence>
-	</xsd:complexType>
-
-	<xsd:complexType name="TextWithLinksType" mixed="true">
-		<xsd:choice minOccurs="0" maxOccurs="unbounded">
-			<xsd:element name="rulesref" type="RefType" />
-		</xsd:choice>
-	</xsd:complexType>
-
-	<xsd:complexType name="VersionType">
-		<xsd:sequence>
-			<xsd:element name="major" type="IntGreaterNull" minOccurs="1" maxOccurs="1" />
-			<xsd:element name="minor" type="IntGreaterNull" minOccurs="1" maxOccurs="1" />
-			<xsd:element name="patch" type="IntGreaterNull" minOccurs="1" maxOccurs="1" />
-		</xsd:sequence>
-	</xsd:complexType>
-
-	<xsd:simpleType name="IntGreaterNull">
-		<xsd:restriction base="xsd:integer">
-			<xsd:minInclusive value="0" />
-		</xsd:restriction>
-	</xsd:simpleType>
 
 </xsd:schema>
 

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="reveal.xslt"?>
 
 <issuedocument
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:noNamespaceSchemaLocation="../schema/issuedocument.xsd">
+		xsi:noNamespaceSchemaLocation="../schema/issuedocument.xsd"
+		xmlns:xi="http://www.w3.org/2001/XInclude">
+
+	<xi:include href="../rules/rules.xml" parse="xml" />
 
 	<info>
 		<creation>2014-10-13T12:45:00.000+02:00</creation>
