@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="reveal.xslt"?>
+
+<rules
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="rules.xsd">
+
+	<info>
+		<creation>2014-10-20T00:26:00.000+02:00</creation>
+		<lastchange>2014-10-20T00:26:00.000+02:00</lastchange>
+		<version>
+			<major>0</major>
+			<minor>2</minor>
+			<patch>0</patch>
+		</version>
+	</info>
+
+	<rule id="Rules">
+		<rulecontent lang="de">
+			<title>Tischtennisregeln</title>
+		</rulecontent>
+
+		<rule id="Rules.B">
+			<rulecontent lang="de">
+				<title>Teil B</title>
+				<subtitle>Bestimmungen für internationale Veranstaltungen (Auszug)</subtitle>
+				<para>
+					Die nachfolgenden Regeln und Bestimmungen der ITTF gelten, soweit nicht ausdrücklich anders festgelegt, für den Bereich des DTTB.
+					Alle über diesen Rahmen hinausgehenden Bestimmungen dieses Abschnittes wurden nicht mit aufgenommen; sie können im Abschnitt 3 des ITTF-Handbuches nachgeschlagen werden.
+				</para>
+			</rulecontent>
+
+			<rule id="Rules.B.2">
+				<rulecontent lang="de">
+					<title>Spielmaterial und Spielbedingungen</title>
+				</rulecontent>
+				<rule id="Rules.B.2.2">
+					<rulecontent lang="de">
+						<title>Spielkleidung</title>
+					</rulecontent>
+					<rule id="Rules.B.2.2.8">
+						<rulecontent lang="de">
+							<para>
+								Während eines Mannschaftskampfes müssen die daran teilnehmenden Spieler einer Mannschaft einheitlich gekleidet sein.
+								Das gleiche gilt bei Welt-, Olympischen und Paralympischen Titelwettbewerben für die Spieler eines Doppels, sofern sie dem gleichen Verband angehören.
+								Von dieser Bestimmung können Socken, Schuhe sowie Anzahl, Größe, Farbe und Design von Werbung auf der Spielkleidung ausgenommen werden.
+								Spieler desselben Verbands, die bei anderen internationalen Veranstaltungen ein Doppel bilden, können Kleidung verschiedener Hersteller tragen, falls die Grundfarben gleich sind und ihr Nationalverband dieses Verfahren genehmigt.
+							</para>
+						</rulecontent>
+					</rule>
+				</rule>
+			</rule>
+		</rule>
+
+	</rule>
+
+</rules>
+

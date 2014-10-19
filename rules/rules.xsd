@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+XSD Schema for an rules file
+
+v0.2.0
+
+Ekkart Kleinod
+ekleinod@edgesoft.de
+2014
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+						xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+						jxb:version="2.0">
+
+	<xsd:element name="rules" type="RulesType"/>
+
+	<xsd:complexType name="RulesType">
+		<xsd:sequence>
+			<xsd:element name="info" type="InfoType" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="rule" type="RuleType" minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InfoType">
+		<xsd:sequence>
+			<xsd:element name="creation" type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="lastchange" type="xsd:dateTime" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="version" type="VersionType" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="RuleType">
+		<xsd:complexContent>
+			<xsd:extension base="IDType">
+				<xsd:sequence>
+					<xsd:element name="rulecontent" type="RuleContentType" minOccurs="1" maxOccurs="unbounded" />
+					<xsd:element name="rule" type="RuleType" minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RuleContentType">
+		<xsd:complexContent>
+			<xsd:extension base="LangType">
+				<xsd:sequence>
+					<xsd:element name="title" type="xsd:string" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="subtitle" type="xsd:string" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="para" type="TextWithLinksType" minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	<xsd:complexType name="RefType">
+		<xsd:attribute name="idref" type="xsd:IDREF" use="required">
+			<xsd:annotation>
+				<xsd:appinfo>
+					<jxb:property>
+						<jxb:baseType name="IDType"/>
+					</jxb:property>
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+
+	<xsd:complexType name="IDType" abstract="true">
+		<xsd:attribute name="id" type="xsd:ID" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="LangType" abstract="true">
+		<xsd:attribute name="lang" type="xsd:language" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="ParasType">
+		<xsd:sequence>
+			<xsd:element name="para" type="TextWithLinksType" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TextWithLinksType" mixed="true">
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="rulesref" type="RefType" />
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="VersionType">
+		<xsd:sequence>
+			<xsd:element name="major" type="IntGreaterNull" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="minor" type="IntGreaterNull" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="patch" type="IntGreaterNull" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="IntGreaterNull">
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>
+
+<!-- EOF -->
+
