@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="OpenTT-Documents" default="help" basedir=".">
+
+	<property name="issuedocument:xsd" value="../../schema/issuedocument.xsd" />
+	<property name="issuedocument:outpath" value="src/" />
+	<property name="issuedocument:package" value="de.edgesoft.opentt.documents.issues" />
+
+	<property name="path:doc" value="doc/" />
+	<property name="path:html" value="html/" />
+
+	<property name="file:doxy" value="Doxyfile" />
+	<property name="file:zip" value="api.zip" />
+
+	<target name="help" description="Shows help text.">
+		<echo>${ant.project.name}</echo>
+		<echo />
+		<echo>You can use the following targets:</echo>
+
+		<!-- show all available targets -->
+		<java classname="org.apache.tools.ant.Main">
+			<arg value="-projecthelp" />
+			<arg value="-buildfile" />
+			<arg value="${ant.file}" />
+		</java>
+	</target>
+
+	<target name="issuedocument" description="Generates the issuedocument java classes from xsd.">
+		<antcall target="callxjc">
+			<param name="xjc:outpath" value="${issuedocument:outpath}" />
+			<param name="xjc:package" value="${issuedocument:package}" />
+			<param name="xjc:xsd" value="${issuedocument:xsd}" />
+		</antcall>
+	</target>
+
+	<target name="callxjc">
+
+		<exec executable="xjc">
+			<arg value="-d" />
+			<arg value="${xjc:outpath}" />
+			<arg value="-p" />
+			<arg value="${xjc:package}" />
+			<arg value="-encoding" />
+			<arg value="UTF-8" />
+			<arg value="${xjc:xsd}" />
+		</exec>
+
+	</target>
+
+	<target name="api" description="Create the API documentation.">
+
+		<echo>
+			Create the API documentation in ${outpath}.
+		</echo>
+
+		<antcall target="doxygen" />
+		<antcall target="zip" />
+
+	</target>
+
+	<target name="doxygen">
+		<echo>
+			Generate documentation.
+		</echo>
+
+		<echo message="Running doxygen..." />
+		<exec executable="doxygen">
+			<arg line="${file:doxy}" />
+		</exec>
+	</target>
+
+	<target name="zip">
+		<echo>
+			Zip documentation.
+		</echo>
+
+		<echo message="Zipping API..." />
+		<zip
+			destfile="${path:doc}${file:zip}"
+			basedir="${path:doc}${path:html}"
+			includes="**/*.*" />
+
+	</target>
+
+</project>
+
