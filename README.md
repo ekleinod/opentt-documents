@@ -8,9 +8,21 @@ Teil des Projekts "OpenTT", offene Dokumente und Programme rund um Tischtennis.
 
 Dieser Teil enthält Dokumente: Regeln, Handbücher, Regelfragen etc.
 
-Lizenz: Creative-Commons-Lizenz Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International
-
+Lizenz der Dokumente: Creative-Commons-Lizenz Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International
 Siehe Datei LICENSE.
+
+Lizenz der Programme: GNU General Public License.
+Siehe Datei COPYING.
+
+Bedeutet:
+
+- die Dokumente sind frei, solange man
+	- kein Geld damit macht
+	- den Urheber nennt
+	- abgeleitete Dokumente (Erweiterungen etc.) unter den gleichen Bedingungen weitergibt
+- die Programme sind frei und Open Source
+	- der Quellcode der Programme muss mitgeliefert werden
+	- geänderter Quellcode muss unter der gleichen Lizenz veröffentlicht werden
 
 ### Was soll das? Kann ich mitmachen?
 
@@ -70,9 +82,21 @@ Part of the project "OpenTT" which provides open documents and applications for 
 
 This part contains documents: rules, handbooks, rule questions etc.
 
-License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
-
+License of the documents: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 See file LICENSE.
+
+License of the programs: GNU General Public License.
+See file COPYING.
+
+Which means:
+
+- the documents are free, as long as you
+	- don't make money with them
+	- mention the creator
+	- share derivates with the same license
+- programs are free and open source
+	- you have to provide the source code of the programs
+	- if you change the source code, you have to distribute it under the same license
 
 ### What is this? Can I participate?
 
@@ -125,4 +149,27 @@ Additionally, the following branches my occur:
 - `feature-*` - writing a special feature
 - `release-*` - synchronizing release versions between `develop` and `master`
 - `hotfix-*` - fast bugfixes
+
+## Legal stuff for programs
+
+Copyright 2014 Ekkart Kleinod <ekleinod@edgesoft.de>
+
+The program is distributed under the terms of the GNU General Public License.
+
+See COPYING for details.
+
+This file is part of OpenTT-Documents.
+
+OpenTT-Documents is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OpenTT-Documents is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
 

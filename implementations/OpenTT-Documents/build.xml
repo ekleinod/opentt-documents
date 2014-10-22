@@ -4,7 +4,7 @@
 
 	<property name="issuedocument:xsd" value="../../schema/issuedocument.xsd" />
 	<property name="issuedocument:outpath" value="src/" />
-	<property name="issuedocument:package" value="de.edgesoft.opentt.documents.issues" />
+	<property name="issuedocument:package" value="de.edgesoft.opentt.documents.issues.model" />
 
 	<property name="path:doc" value="doc/" />
 	<property name="path:html" value="html/" />
