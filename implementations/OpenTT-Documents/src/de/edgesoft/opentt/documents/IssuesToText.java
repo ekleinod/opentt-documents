@@ -5,6 +5,9 @@ import java.text.MessageFormat;
 import de.edgesoft.edgeutils.Messages;
 import de.edgesoft.edgeutils.commandline.AbstractMainClass;
 import de.edgesoft.edgeutils.commandline.CommandOption;
+import de.edgesoft.edgeutils.files.JAXBFiles;
+import de.edgesoft.opentt.documents.issues.model.IssueDocumentType;
+import de.edgesoft.opentt.documents.issues.model.ObjectFactory;
 import de.edgesoft.opentt.documents.view.OutputTypes;
 
 /**
@@ -99,7 +102,10 @@ public class IssuesToText extends AbstractMainClass {
 		
 		try {
 			// read issues xml
-			// do something
+			IssueDocumentType theIssueDocumentType = JAXBFiles.unmarshal(theInFile, IssueDocumentType.class);
+			
+			// output issue xml (for test only)
+			System.out.println(JAXBFiles.marshalToString(new ObjectFactory().createIssuedocument(theIssueDocumentType), null));
 					
 		} catch (Exception e) {
 			Messages.printError(e);
