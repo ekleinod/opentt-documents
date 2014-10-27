@@ -2,9 +2,11 @@
 
 <project name="OpenTT-Documents" default="help" basedir=".">
 
-	<property name="issuedocument:xsd" value="../../schema/issuedocument.xsd" />
+	<property name="issuedocument:schemapath" value="../../schema/" />
+	<property name="issuedocument:xsd" value="${issuedocument:schemapath}issuedocument.xsd" />
 	<property name="issuedocument:outpath" value="src/" />
 	<property name="issuedocument:package" value="de.edgesoft.opentt.documents.issues.model" />
+	<property name="issuedocument:bindings" value="${issuedocument:schemapath}bindings.xjb" />
 
 	<property name="path:doc" value="doc/" />
 	<property name="path:html" value="html/" />
@@ -30,12 +32,15 @@
 			<param name="xjc:outpath" value="${issuedocument:outpath}" />
 			<param name="xjc:package" value="${issuedocument:package}" />
 			<param name="xjc:xsd" value="${issuedocument:xsd}" />
+			<param name="xjc:bindings" value="${issuedocument:bindings}" />
 		</antcall>
 	</target>
 
 	<target name="callxjc">
 
 		<exec executable="xjc">
+			<arg value="-b" />
+			<arg value="${xjc:bindings}" />
 			<arg value="-d" />
 			<arg value="${xjc:outpath}" />
 			<arg value="-p" />
