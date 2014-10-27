@@ -42,6 +42,8 @@
 			<arg value="${xjc:package}" />
 			<arg value="-encoding" />
 			<arg value="UTF-8" />
+			<arg value="-npa" />
+			<arg value="-no-header" />
 			<arg value="${xjc:xsd}" />
 		</exec>
 
