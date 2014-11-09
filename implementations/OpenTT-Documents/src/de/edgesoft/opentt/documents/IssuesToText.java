@@ -1,5 +1,6 @@
 package de.edgesoft.opentt.documents;
 
+import java.io.File;
 import java.text.MessageFormat;
 
 import de.edgesoft.edgeutils.Messages;
@@ -56,7 +57,29 @@ public class IssuesToText extends AbstractMainClass {
 	 * @since 0.1
 	 */
 	public static void main(String[] args) {
+		
 		Messages.printMessage("start.");
+		
+		if (!executeOperation(args)) {
+			Messages.printError("Fehler.");
+			System.exit(1);
+		}
+
+		Messages.printMessage("Fertig.");
+		
+	}
+	
+	/**
+	 * Executes the operation.
+	 * 
+	 * This method enables other classes to call this method with command line parameters.
+	 * 
+	 * @param args command line arguments
+	 * 
+	 * @version 0.1
+	 * @since 0.1
+	 */
+	public static boolean executeOperation(String[] args) {
 		
 		addCommandOption(OPT_INFILE);
 		addCommandOption(OPT_TYPE);
@@ -76,14 +99,11 @@ public class IssuesToText extends AbstractMainClass {
 			processIssues(sInFile, tpeInType, sOutPath);
 			
 		} catch (Exception e) {
-			Messages.printError("");
-			Messages.printError(getUsage());
-			Messages.printError("");
-			Messages.printError(e);
-			System.exit(1);
+			return false;
 		}
 		
-		Messages.printMessage("end.");
+		return true;
+		
 	}
 	
 	/**
@@ -102,10 +122,10 @@ public class IssuesToText extends AbstractMainClass {
 		
 		try {
 			// read issues xml
-			IssueDocumentType theIssueDocumentType = JAXBFiles.unmarshal(theInFile, IssueDocumentType.class);
+			IssueDocumentType theIssueDocumentType = JAXBFiles.unmarshalInclude(theInFile, IssueDocumentType.class);
 			
 			// output issue xml (for test only)
-			System.out.println(JAXBFiles.marshalToString(new ObjectFactory().createIssuedocument(theIssueDocumentType), null));
+			JAXBFiles.marshal(new ObjectFactory().createIssuedocument(theIssueDocumentType), new File(theOutPath, new File(theInFile).getName()).getAbsolutePath(), null);
 					
 		} catch (Exception e) {
 			Messages.printError(e);
