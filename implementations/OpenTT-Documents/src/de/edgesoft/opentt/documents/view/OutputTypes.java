@@ -24,8 +24,8 @@ package de.edgesoft.opentt.documents.view;
  * along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * @author Ekkart Kleinod
- * @version 0.1
- * @since 0.1
+ * @version 0.2
+ * @since 0.2
  */
 public enum OutputTypes {
 	
@@ -36,8 +36,8 @@ public enum OutputTypes {
 	 * 
 	 * @return string representation
 	 * 
-	 * @version 0.1
-	 * @since 0.1
+	 * @version 0.2
+	 * @since 0.2
 	 */
 	@Override
 	public String toString() {
@@ -51,8 +51,8 @@ public enum OutputTypes {
 	 * @return object
 	 *  @retval null if no object could be found
 	 * 
-	 * @version 0.1
-	 * @since 0.1
+	 * @version 0.2
+	 * @since 0.2
 	 */
 	public static OutputTypes fromString(String theString) {
 		for (OutputTypes theObject : OutputTypes.values()) {

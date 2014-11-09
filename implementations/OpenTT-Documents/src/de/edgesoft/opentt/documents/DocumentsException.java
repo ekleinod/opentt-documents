@@ -23,8 +23,8 @@ package de.edgesoft.opentt.documents;
  * along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * @author Ekkart Kleinod
- * @version 0.1
- * @since 0.1
+ * @version 0.2
+ * @since 0.2
  */
 public class DocumentsException extends Exception {
 	
@@ -36,8 +36,8 @@ public class DocumentsException extends Exception {
 	 * 
 	 * @param theErrorMessage error message
 	 * 
-	 * @version 0.1
-	 * @since 0.1
+	 * @version 0.2
+	 * @since 0.2
 	 */
 	public DocumentsException(String theErrorMessage) {
 		super(theErrorMessage);

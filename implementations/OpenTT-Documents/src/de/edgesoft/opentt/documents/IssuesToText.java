@@ -34,8 +34,8 @@ import de.edgesoft.opentt.documents.view.OutputTypes;
  * along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * @author Ekkart Kleinod
- * @version 0.1
- * @since 0.1
+ * @version 0.2
+ * @since 0.2
  */
 public class IssuesToText extends AbstractMainClass {
 	
@@ -53,8 +53,8 @@ public class IssuesToText extends AbstractMainClass {
 	 * 
 	 * @param args command line arguments
 	 * 
-	 * @version 0.1
-	 * @since 0.1
+	 * @version 0.2
+	 * @since 0.2
 	 */
 	public static void main(String[] args) {
 		
@@ -76,8 +76,8 @@ public class IssuesToText extends AbstractMainClass {
 	 * 
 	 * @param args command line arguments
 	 * 
-	 * @version 0.1
-	 * @since 0.1
+	 * @version 0.2
+	 * @since 0.2
 	 */
 	public static boolean executeOperation(String[] args) {
 		
@@ -115,8 +115,8 @@ public class IssuesToText extends AbstractMainClass {
 	 * 
 	 * @throws DocumentsException if an error occurred during execution
 	 * 
-	 * @version 0.1
-	 * @since 0.1
+	 * @version 0.2
+	 * @since 0.2
 	 */
 	public static void processIssues(String theInFile, OutputTypes theOutputType, String theOutPath) throws DocumentsException {
 		
