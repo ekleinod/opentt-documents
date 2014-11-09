@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<issuedocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/issuedocument.xsd">
+    <rules xml:base="../rules/rules.xml">
+        <info>
+            <creation>2014-10-20T00:26:00.000+02:00</creation>
+            <lastchange>2014-10-20T00:26:00.000+02:00</lastchange>
+            <version>
+                <major>0</major>
+                <minor>2</minor>
+                <patch>0</patch>
+            </version>
+        </info>
+        <rule id="Rules">
+            <rulecontent lang="de">
+                <title>Tischtennisregeln</title>
+            </rulecontent>
+            <rule id="Rules.B">
+                <rulecontent lang="de">
+                    <title>Teil B</title>
+                    <subtitle>Bestimmungen für internationale Veranstaltungen (Auszug)</subtitle>
+                    <para>
+					Die nachfolgenden Regeln und Bestimmungen der ITTF gelten, soweit nicht ausdrücklich anders festgelegt, für den Bereich des DTTB.
+					Alle über diesen Rahmen hinausgehenden Bestimmungen dieses Abschnittes wurden nicht mit aufgenommen; sie können im Abschnitt 3 des ITTF-Handbuches nachgeschlagen werden.
+				</para>
+                </rulecontent>
+                <rule id="Rules.B.2">
+                    <rulecontent lang="de">
+                        <title>Spielmaterial und Spielbedingungen</title>
+                    </rulecontent>
+                    <rule id="Rules.B.2.2">
+                        <rulecontent lang="de">
+                            <title>Spielkleidung</title>
+                        </rulecontent>
+                        <rule id="Rules.B.2.2.8">
+                            <rulecontent lang="de">
+<para>
+								Während eines Mannschaftskampfes müssen die daran teilnehmenden Spieler einer Mannschaft einheitlich gekleidet sein.
+								Das gleiche gilt bei Welt-, Olympischen und Paralympischen Titelwettbewerben für die Spieler eines Doppels, sofern sie dem gleichen Verband angehören.
+								Von dieser Bestimmung können Socken, Schuhe sowie Anzahl, Größe, Farbe und Design von Werbung auf der Spielkleidung ausgenommen werden.
+								Spieler desselben Verbands, die bei anderen internationalen Veranstaltungen ein Doppel bilden, können Kleidung verschiedener Hersteller tragen, falls die Grundfarben gleich sind und ihr Nationalverband dieses Verfahren genehmigt.
+							</para>
+                            </rulecontent>
+                        </rule>
+                    </rule>
+                </rule>
+            </rule>
+        </rule>
+    </rules>
+    <info>
+        <creation>2014-10-13T12:45:00.000+02:00</creation>
+        <lastchange>2014-10-15T00:55:00.000+02:00</lastchange>
+        <version>
+            <major>0</major>
+            <minor>2</minor>
+            <patch>0</patch>
+        </version>
+    </info>
+    <issue id="q.1">
+        <issuecontent lang="de">
+            <title>Einheitliche Hosen/Röckchen</title>
+            <query>
+                <para>
+					Mannschaft A tritt in schwarzen Hosen zum Punktspiel an.
+					Ein Spieler vom Mannschaft A hat Hosen der Marke Y im Gegensatz zu den anderen Spielern, die Hosen der Marke Y tragen.
+					Die Hosen unterscheiden sich durch die Herstellerkennzeichnungen: ein &quot;Swoosh&quot; bei Marke X, drei Streifen bei Marke Y.
+				</para>
+            </query>
+            <longanswer>
+                <para>
+					Die Einheitlichkeit von Hosen bzw. Röckchen ist auch dann gegeben, wenn diese von unterschiedlichen Herstellern bezogen wurden, solange die Farben identisch sind.
+					Herstellerapplikationen wie z.B. drei weiße Streifen, ein sog. Swoosh o.ä. stören die Einheitlichkeit nicht.
+				</para>
+            </longanswer>
+            <origin>
+                <para>Regelanfrage 2013</para>
+            </origin>
+            <qna>
+                <question>
+                    <para>Wie entscheiden Sie als OSR über die Zulässigkeit der Kleidung?</para>
+                </question>
+                <answer>
+                    <para>
+						Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, müssen alle Spieler Hosen derselben Marke anziehen.
+						Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
+					</para>
+                </answer>
+                <answer correct="true">
+                    <para>
+						Die Einheitlichkeit wird nicht gestört, Mannschaft A kann spielen.
+					</para>
+                </answer>
+                <answer>
+                    <para>
+						Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, reicht es, die Markenkennzeichnungen zu verdecken, z.B. durch Klebeband.
+						Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
+					</para>
+                </answer>
+            </qna>
+            <tag>Kleidung</tag>
+            <tag>OSR</tag>
+        </issuecontent>
+        <issuecontent lang="en">
+            <title>Uniform Trousers</title>
+        </issuecontent>
+        <documentref idref="dttb.regelauslegungen.2014"/>
+        <rulesref idref="Rules.B.2.2.8"/>
+    </issue>
+    <document id="dttb.regelauslegungen.2014">
+        <documentcontent lang="de">
+            <title>Regelauslegungen für den Bereich des DTTB</title>
+        </documentcontent>
+        <authorref idref="dttb.rsr"/>
+    </document>
+    <author id="dttb.rsr">
+        <authorcontent lang="de">
+            <title>Ressort Schiedsrichter des DTTB</title>
+        </authorcontent>
+    </author>
+</issuedocument>

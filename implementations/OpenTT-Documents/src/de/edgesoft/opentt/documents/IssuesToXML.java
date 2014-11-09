@@ -43,10 +43,10 @@ public class IssuesToXML extends AbstractMainClass {
 	private final static CommandOption OPT_INFILE = new CommandOption("i", "input", true, "input issues xml file", true);
 	
 	/** Argument xml schema. */
-	private final static CommandOption OPT_SCHEMA = new CommandOption("x", "xmlschema", true, "xml schema", false);
+	private final static CommandOption OPT_SCHEMA = new CommandOption("x", "xsd", true, "xml schema (xsd file)", false);
 	
-	/** Argument output path. */
-	private final static CommandOption OPT_OUTPATH = new CommandOption("o", "output", true, "output file", true);
+	/** Argument output file. */
+	private final static CommandOption OPT_OUTFILE = new CommandOption("o", "output", true, "output file", true);
 	
 	/**
 	 * Main method, called from command line.
@@ -83,14 +83,14 @@ public class IssuesToXML extends AbstractMainClass {
 		
 		addCommandOption(OPT_INFILE);
 		addCommandOption(OPT_SCHEMA);
-		addCommandOption(OPT_OUTPATH);
+		addCommandOption(OPT_OUTFILE);
 		
 		init(args, IssuesToXML.class);
 		
 		try {
 			String sInFile = getOptionValue(OPT_INFILE);
 			String sSchema = getOptionValue(OPT_SCHEMA);
-			String sOutPath = getOptionValue(OPT_OUTPATH);
+			String sOutPath = getOptionValue(OPT_OUTFILE);
 			
 			Messages.printMessage(MessageFormat.format("Processing file ''{0}''", sInFile));
 			Messages.printMessage(MessageFormat.format("XML schema ''{0}''", sSchema));
