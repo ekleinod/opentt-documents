@@ -14,7 +14,7 @@ import org.junit.runners.Parameterized.Parameters;
 import de.edgesoft.opentt.documents.IssuesToXML;
 
 /**
- * Test class for {@link IssuesToXMLTest}.
+ * Test class for {@link IssuesToXML}.
  * 
  * ## Legal stuff
  * 
