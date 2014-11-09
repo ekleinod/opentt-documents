@@ -1,54 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<xsl:stylesheet
-	version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-	<!-- output html, not xml -->
-	<xsl:output method="html" encoding="UTF-8" />
-
-	<!-- start of all -->
-	<xsl:template match="/">
-		<xsl:apply-templates />
-	</xsl:template>
-
-	<!-- start of reveal output -->
-	<xsl:template match="issuedocument">
-		<html>
-			<meta charset="utf-8" />
-
-			<meta name="apple-mobile-web-app-capable" content="yes" />
-			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-			<link rel="stylesheet" href="reveal.js/css/reveal.min.css" />
-			<link rel="stylesheet" href="theme/bettv.css" id="theme" /> <!-- default/beige/sky/night/serif/simple/solarized -->
-
-			<head>
-				<title>Regelfragen</title>
-			</head>
-			<body>
-				<div class="reveal">
-					<div class="slides">
-
-						<section>
-							<h1>Regelfragen</h1>
-							<h3>Leicht bis schwierig</h3>
-							<p>
-								<small>Ekkart Kleinod</small>
-							</p>
-						</section>
-
-						<xsl:apply-templates select="issue" />
-
-					</div>
-				</div>
-
-				<script src="reveal.js/lib/js/head.min.js"></script>
-				<script src="reveal.js/js/reveal.min.js"></script>
-
-				<script>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+<link rel="stylesheet" href="theme/bettv.css" id="theme">
+<head><title>Regelfragen</title></head>
+<body>
+<div class="reveal"><div class="slides">
+<section><h1>Regelfragen</h1>
+<h3>Leicht bis schwierig</h3>
+<p><small>Ekkart Kleinod</small></p></section><section><section><h2>Einheitliche Hosen/Röckchen</h2>
+<p class="bettv-issue">
+				
+					Mannschaft A tritt in schwarzen Hosen zum Punktspiel an.
+					Ein Spieler vom Mannschaft A hat Hosen der Marke Y im Gegensatz zu den anderen Spielern, die Hosen der Marke Y tragen.
+					Die Hosen unterscheiden sich durch die Herstellerkennzeichnungen: ein "Swoosh" bei Marke X, drei Streifen bei Marke Y.
+				
+			</p>
+<p class="bettv-question">Wie entscheiden Sie als OSR über die Zulässigkeit der Kleidung?</p>
+<ol class="bettv-answer">
+<li>
+					<p>
+						Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, müssen alle Spieler Hosen derselben Marke anziehen.
+						Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
+					</p>
+				</li>
+<li class="fragment highlight-green">
+					<p>
+						Die Einheitlichkeit wird nicht gestört, Mannschaft A kann spielen.
+					</p>
+				</li>
+<li>
+					<p>
+						Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, reicht es, die Markenkennzeichnungen zu verdecken, z.B. durch Klebeband.
+						Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
+					</p>
+				</li>
+</ol></section><section><h2>Einheitliche Hosen/Röckchen</h2>
+<p class="bettv-issue">
+				
+					Mannschaft A tritt in schwarzen Hosen zum Punktspiel an.
+					Ein Spieler vom Mannschaft A hat Hosen der Marke Y im Gegensatz zu den anderen Spielern, die Hosen der Marke Y tragen.
+					Die Hosen unterscheiden sich durch die Herstellerkennzeichnungen: ein "Swoosh" bei Marke X, drei Streifen bei Marke Y.
+				
+			</p>
+<blockquote>
+				<p>
+					Die Einheitlichkeit von Hosen bzw. Röckchen ist auch dann gegeben, wenn diese von unterschiedlichen Herstellern bezogen wurden, solange die Farben identisch sind.
+					Herstellerapplikationen wie z.B. drei weiße Streifen, ein sog. Swoosh o.ä. stören die Einheitlichkeit nicht.
+				</p>
+			</blockquote></section></section>
+</div></div>
+<script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.min.js"></script><script>
 
 					// Full list of configuration options available here:
 					// https://github.com/hakimel/reveal.js#configuration
@@ -155,73 +160,5 @@
 					});
 
 				</script>
-
-			</body>
-		</html>
-	</xsl:template>
-
-	<!-- output issue -->
-	<xsl:template match="issue">
-		<section>
-			<section>
-				<xsl:apply-templates select="issuecontent[@lang = 'de']" mode="question" />
-			</section>
-			<section>
-				<xsl:apply-templates select="issuecontent[@lang = 'de']" mode="longanswer" />
-			</section>
-		</section>
-	</xsl:template>
-
-	<!-- output issuecontent (questions) -->
-	<xsl:template match="issuecontent" mode="question">
-		<h2><xsl:value-of select="title" /></h2>
-
-		<p class="bettv-issue"><xsl:value-of select="query" /></p>
-		<xsl:apply-templates select="qna" />
-
-	</xsl:template>
-
-	<!-- output qna -->
-	<xsl:template match="qna">
-		<p class="bettv-question"><xsl:value-of select="question" /></p>
-
-		<ol class="bettv-answer">
-			<xsl:apply-templates select="answer" />
-		</ol>
-	</xsl:template>
-
-	<!-- output answer -->
-	<xsl:template match="answer">
-		<li>
-			<xsl:if test="@correct = 'true'">
-				<xsl:attribute name="class">fragment highlight-green</xsl:attribute>
-			</xsl:if>
-			<xsl:apply-templates />
-		</li>
-	</xsl:template>
-
-	<!-- output issuecontent (longanswer) -->
-	<xsl:template match="issuecontent" mode="longanswer">
-		<h2><xsl:value-of select="title" /></h2>
-
-		<p class="bettv-issue"><xsl:value-of select="query" /></p>
-
-		<blockquote>
-			<xsl:apply-templates select="longanswer" />
-		</blockquote>
-	</xsl:template>
-
-	<!-- output longanswer -->
-	<xsl:template match="longanswer">
-		<xsl:apply-templates />
-	</xsl:template>
-
-	<!-- output para -->
-	<xsl:template match="para">
-		<p><xsl:apply-templates /></p>
-	</xsl:template>
-
-</xsl:stylesheet>
-
-<!-- EOF -->
-
+</body>
+</html>
