@@ -1,5 +1,5 @@
 /*
- * bettv-Theme based on Black theme for reveal.js.
+ * OpenTT-Theme based on Black theme for reveal.js.
  *
  * Copyright (C) 2014 Ekkart Kleinod ekleinod@edgesoft.de
  */
@@ -193,7 +193,7 @@ body {
 }
 
 /* specific formats */
-p.bettv-question {
+p.opentt-question {
 	border-top: 2px solid #a07d7d;
 	border-bottom: 2px solid #a07d7d;
 	margin-top: 1ex;

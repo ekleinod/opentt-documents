@@ -5,14 +5,13 @@ import java.text.MessageFormat;
 import de.edgesoft.edgeutils.Messages;
 import de.edgesoft.edgeutils.commandline.AbstractMainClass;
 import de.edgesoft.edgeutils.commandline.CommandOption;
+import de.edgesoft.edgeutils.files.FileAccess;
 import de.edgesoft.edgeutils.files.JAXBFiles;
 import de.edgesoft.opentt.documents.issues.model.IssueDocumentType;
 import de.edgesoft.opentt.documents.issues.model.ObjectFactory;
 
 /**
- * Reads an issue documents and stores it in an xml file.
- * 
- * This class is for testing rather than concrete use.
+ * Reads an issue documents and stores it in a reveal file.
  * 
  * ## Legal stuff
  * 
@@ -37,13 +36,13 @@ import de.edgesoft.opentt.documents.issues.model.ObjectFactory;
  * @version 0.2
  * @since 0.2
  */
-public class IssuesToXML extends AbstractMainClass {
+public class IssuesToReveal extends AbstractMainClass {
 	
 	/** Argument input file. */
 	private final static CommandOption OPT_INFILE = new CommandOption("i", "input", true, "input issues xml file", true);
 	
-	/** Argument xml schema. */
-	private final static CommandOption OPT_SCHEMA = new CommandOption("x", "xsd", true, "xml schema (xsd file)", false);
+	/** Argument reveal template. */
+	private final static CommandOption OPT_TEMPLATE = new CommandOption("t", "template", true, "reveal template", false);
 	
 	/** Argument output file. */
 	private final static CommandOption OPT_OUTFILE = new CommandOption("o", "output", true, "output file", true);
@@ -82,21 +81,21 @@ public class IssuesToXML extends AbstractMainClass {
 	public static boolean executeOperation(String[] args) {
 		
 		addCommandOption(OPT_INFILE);
-		addCommandOption(OPT_SCHEMA);
+		addCommandOption(OPT_TEMPLATE);
 		addCommandOption(OPT_OUTFILE);
 		
-		init(args, IssuesToXML.class);
+		init(args, IssuesToReveal.class);
 		
 		try {
 			String sInFile = getOptionValue(OPT_INFILE);
-			String sSchema = getOptionValue(OPT_SCHEMA);
+			String sTemplate = getOptionValue(OPT_TEMPLATE);
 			String sOutPath = getOptionValue(OPT_OUTFILE);
 			
 			Messages.printMessage(MessageFormat.format("Processing file ''{0}''", sInFile));
-			Messages.printMessage(MessageFormat.format("XML schema ''{0}''", sSchema));
+			Messages.printMessage(MessageFormat.format("Reveal template ''{0}''", sTemplate));
 			Messages.printMessage(MessageFormat.format("Output path ''{0}''", sOutPath));
 			
-			processIssues(sInFile, sSchema, sOutPath);
+			processIssues(sInFile, sTemplate, sOutPath);
 			
 		} catch (Exception e) {
 			return false;
@@ -107,10 +106,10 @@ public class IssuesToXML extends AbstractMainClass {
 	}
 	
 	/**
-	 * Converts an issue xml file to an xml file.
+	 * Converts an issue xml file to a reveal file.
 	 * 
 	 * @param theInFile input file
-	 * @param theXMLSchema xml schema
+	 * @param theTemplate reveal template
 	 * @param theOutFile output file
 	 * 
 	 * @throws DocumentsException if an error occurred during execution
@@ -118,14 +117,22 @@ public class IssuesToXML extends AbstractMainClass {
 	 * @version 0.2
 	 * @since 0.2
 	 */
-	public static void processIssues(String theInFile, String theXMLSchema, String theOutFile) throws DocumentsException {
+	public static void processIssues(String theInFile, String theTemplate, String theOutFile) throws DocumentsException {
 		
 		try {
 			// read issues xml
 			IssueDocumentType theIssueDocumentType = JAXBFiles.unmarshalInclude(theInFile, IssueDocumentType.class);
+
+			// read template
+			Messages.printMessage(MessageFormat.format("Reading template file ''{0}''", theTemplate));
+			String sFileContent = FileAccess.readFile(theTemplate).toString();
+
+			// fill template
+			sFileContent.replace("**issues**", "test");
 			
-			// output issue xml
-			JAXBFiles.marshal(new ObjectFactory().createIssuedocument(theIssueDocumentType), theOutFile, theXMLSchema);
+			// output reveal file
+			Messages.printMessage(MessageFormat.format("Writing reveal file ''{0}''", theOutFile));
+			FileAccess.writeFile(theOutFile, sFileContent);
 					
 		} catch (Exception e) {
 			Messages.printError(e);
