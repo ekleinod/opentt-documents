@@ -8,7 +8,7 @@ import de.edgesoft.edgeutils.commandline.CommandOption;
 import de.edgesoft.edgeutils.files.FileAccess;
 import de.edgesoft.edgeutils.files.JAXBFiles;
 import de.edgesoft.opentt.documents.issues.model.IssueDocumentType;
-import de.edgesoft.opentt.documents.issues.model.ObjectFactory;
+import de.edgesoft.opentt.documents.view.Issues2Reveal;
 
 /**
  * Reads an issue documents and stores it in a reveal file.
@@ -42,7 +42,10 @@ public class IssuesToReveal extends AbstractMainClass {
 	private final static CommandOption OPT_INFILE = new CommandOption("i", "input", true, "input issues xml file", true);
 	
 	/** Argument reveal template. */
-	private final static CommandOption OPT_TEMPLATE = new CommandOption("t", "template", true, "reveal template", false);
+	private final static CommandOption OPT_TEMPLATE = new CommandOption("t", "template", true, "reveal template", true);
+	
+	/** Argument export language. */
+	private final static CommandOption OPT_LANG = new CommandOption("l", "language", true, "export language", true);
 	
 	/** Argument output file. */
 	private final static CommandOption OPT_OUTFILE = new CommandOption("o", "output", true, "output file", true);
@@ -82,6 +85,7 @@ public class IssuesToReveal extends AbstractMainClass {
 		
 		addCommandOption(OPT_INFILE);
 		addCommandOption(OPT_TEMPLATE);
+		addCommandOption(OPT_LANG);
 		addCommandOption(OPT_OUTFILE);
 		
 		init(args, IssuesToReveal.class);
@@ -89,13 +93,15 @@ public class IssuesToReveal extends AbstractMainClass {
 		try {
 			String sInFile = getOptionValue(OPT_INFILE);
 			String sTemplate = getOptionValue(OPT_TEMPLATE);
+			String sLanguage = getOptionValue(OPT_LANG);
 			String sOutPath = getOptionValue(OPT_OUTFILE);
 			
 			Messages.printMessage(MessageFormat.format("Processing file ''{0}''", sInFile));
 			Messages.printMessage(MessageFormat.format("Reveal template ''{0}''", sTemplate));
+			Messages.printMessage(MessageFormat.format("Export language ''{0}''", sLanguage));
 			Messages.printMessage(MessageFormat.format("Output path ''{0}''", sOutPath));
 			
-			processIssues(sInFile, sTemplate, sOutPath);
+			processIssues(sInFile, sTemplate, sLanguage, sOutPath);
 			
 		} catch (Exception e) {
 			return false;
@@ -110,6 +116,7 @@ public class IssuesToReveal extends AbstractMainClass {
 	 * 
 	 * @param theInFile input file
 	 * @param theTemplate reveal template
+	 * @param theLanguage language to use
 	 * @param theOutFile output file
 	 * 
 	 * @throws DocumentsException if an error occurred during execution
@@ -117,7 +124,7 @@ public class IssuesToReveal extends AbstractMainClass {
 	 * @version 0.2
 	 * @since 0.2
 	 */
-	public static void processIssues(String theInFile, String theTemplate, String theOutFile) throws DocumentsException {
+	public static void processIssues(String theInFile, String theTemplate, String theLanguage, String theOutFile) throws DocumentsException {
 		
 		try {
 			// read issues xml
@@ -128,7 +135,7 @@ public class IssuesToReveal extends AbstractMainClass {
 			String sFileContent = FileAccess.readFile(theTemplate).toString();
 
 			// fill template
-			sFileContent.replace("**issues**", "test");
+			sFileContent = sFileContent.replace("**issues**", Issues2Reveal.issues2Reveal(theIssueDocumentType, theLanguage));
 			
 			// output reveal file
 			Messages.printMessage(MessageFormat.format("Writing reveal file ''{0}''", theOutFile));

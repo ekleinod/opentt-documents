@@ -80,6 +80,8 @@ public class IssuesToRevealTest {
 				"../../issues/issuedocument.xml",
 				"--template",
 				"../../export/revealtemplate.html",
+				"--language",
+				"de",
 				"--output",
 				String.format("../../export/%s.html", name),
 		};
