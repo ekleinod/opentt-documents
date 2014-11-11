@@ -1,12 +1,13 @@
 
 package de.edgesoft.opentt.documents.issues.model;
 
+import java.util.Calendar;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -38,12 +39,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class InfoType {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar creation;
-    @XmlElement(required = true)
+    protected Calendar creation;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
     @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar lastchange;
+    protected Calendar lastchange;
     @XmlElement(required = true)
     protected VersionType version;
 
@@ -52,10 +55,10 @@ public class InfoType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getCreation() {
+    public Calendar getCreation() {
         return creation;
     }
 
@@ -64,10 +67,10 @@ public class InfoType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setCreation(XMLGregorianCalendar value) {
+    public void setCreation(Calendar value) {
         this.creation = value;
     }
 
@@ -76,10 +79,10 @@ public class InfoType {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getLastchange() {
+    public Calendar getLastchange() {
         return lastchange;
     }
 
@@ -88,10 +91,10 @@ public class InfoType {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setLastchange(XMLGregorianCalendar value) {
+    public void setLastchange(Calendar value) {
         this.lastchange = value;
     }
 

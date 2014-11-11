@@ -1,13 +1,24 @@
 package de.edgesoft.opentt.documents.view;
 
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+import de.edgesoft.edgeutils.collections.CollectionHelper;
 import de.edgesoft.edgeutils.reveal.RevealMarkup;
 import de.edgesoft.opentt.documents.DocumentsException;
 import de.edgesoft.opentt.documents.issues.model.AnswerType;
+import de.edgesoft.opentt.documents.issues.model.DocumentContentType;
+import de.edgesoft.opentt.documents.issues.model.DocumentType;
 import de.edgesoft.opentt.documents.issues.model.IssueContentType;
 import de.edgesoft.opentt.documents.issues.model.IssueDocumentType;
 import de.edgesoft.opentt.documents.issues.model.IssueType;
+import de.edgesoft.opentt.documents.issues.model.RefType;
+import de.edgesoft.opentt.documents.issues.model.RuleContentType;
+import de.edgesoft.opentt.documents.issues.model.RuleType;
 import de.edgesoft.opentt.documents.issues.model.TextWithLinksType;
-import de.edgesoft.opentt.documents.issues.model.additional.TextWithLinksTypeHC;
+import de.edgesoft.opentt.documents.issues.model.additional.RuleTypeHelper;
+import de.edgesoft.opentt.documents.issues.model.additional.TextWithLinksTypeHelper;
 
 /**
  * Converts issues to reveal slides.
@@ -64,29 +75,109 @@ public class Issues2Reveal {
 				if (theIssueContentType.getLang().equals(theLanguage)) {
 					sbReturn.append(String.format(RevealMarkup.getHeadingToken(2), theIssueContentType.getTitle()));
 					
-					for (TextWithLinksType theText: theIssueContentType.getQuery().getPara()) {
-						sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-query", TextWithLinksTypeHC.content2String(theText.getContent())));
-					}
-					
-					for (TextWithLinksType theText: theIssueContentType.getQna().getQuestion().getPara()) {
-						sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-question", 
-								TextWithLinksTypeHC.content2String(theText.getContent())));
-					}
-					
-					sbReturn.append(String.format(RevealMarkup.LIST_START, "opentt-answer"));
-					for (AnswerType theAnswer: theIssueContentType.getQna().getAnswer()) {
-						sbReturn.append(String.format(RevealMarkup.LIST_ITEM_START, ((theAnswer.isCorrect() != null) && theAnswer.isCorrect()) ? "fragment highlight-green" : ""));
-						for (TextWithLinksType theText: theAnswer.getPara()) {
-							sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "", 
-									TextWithLinksTypeHC.content2String(theText.getContent())));
+					if (theIssueContentType.getQuery() != null) {
+						for (TextWithLinksType theText: theIssueContentType.getQuery().getPara()) {
+							sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-query", TextWithLinksTypeHelper.content2String(theText.getContent())));
 						}
-						sbReturn.append(RevealMarkup.LIST_ITEM_END);
 					}
-					sbReturn.append(RevealMarkup.LIST_END);
+					
+					if (theIssueContentType.getQna() != null) {
+						
+						if (theIssueContentType.getQna().getQuestion() != null) {
+							for (TextWithLinksType theText: theIssueContentType.getQna().getQuestion().getPara()) {
+								sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-question", 
+										TextWithLinksTypeHelper.content2String(theText.getContent())));
+							}
+						}
+						
+						if (!theIssueContentType.getQna().getAnswer().isEmpty()) {
+							sbReturn.append(String.format(RevealMarkup.LIST_START, "opentt-answer"));
+							for (AnswerType theAnswer: theIssueContentType.getQna().getAnswer()) {
+								sbReturn.append(String.format(RevealMarkup.LIST_ITEM_START, ((theAnswer.isCorrect() != null) && theAnswer.isCorrect()) ? "fragment highlight-green" : ""));
+								for (TextWithLinksType theText: theAnswer.getPara()) {
+									sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "", 
+											TextWithLinksTypeHelper.content2String(theText.getContent())));
+								}
+								sbReturn.append(RevealMarkup.LIST_ITEM_END);
+							}
+							sbReturn.append(RevealMarkup.LIST_END);
+						}
+					}
 					
 				}
 			}
 			sbReturn.append(RevealMarkup.SLIDE_END);
+			
+			// second slide: long answer
+			sbReturn.append(RevealMarkup.SLIDE_START);
+			for (IssueContentType theIssueContentType : theIssueType.getIssuecontent()) {
+				if (theIssueContentType.getLang().equals(theLanguage)) {
+					sbReturn.append(String.format(RevealMarkup.getHeadingToken(2), theIssueContentType.getTitle()));
+					
+					if (theIssueContentType.getQuery() != null) {
+						for (TextWithLinksType theText: theIssueContentType.getQuery().getPara()) {
+							sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-query", TextWithLinksTypeHelper.content2String(theText.getContent())));
+						}
+					}
+					
+					if (theIssueContentType.getLonganswer() != null) {
+						sbReturn.append(RevealMarkup.BLOCKQUOTE_START);
+						for (TextWithLinksType theText: theIssueContentType.getLonganswer().getPara()) {
+							sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "", TextWithLinksTypeHelper.content2String(theText.getContent())));
+						}
+						sbReturn.append(RevealMarkup.BLOCKQUOTE_END);
+					}
+					
+				}
+			}
+			
+			if (!theIssueType.getDocumentref().isEmpty()) {
+				List<String> lstRefs = new ArrayList<>();
+				for (RefType theRefType : theIssueType.getDocumentref()) {
+					DocumentType theDoc = (DocumentType) theRefType.getIdref();
+					for (DocumentContentType theContentType : theDoc.getDocumentcontent()) {
+						if (theContentType.getLang().equals(theLanguage)) {
+							lstRefs.add(theContentType.getTitle());
+						}
+					}
+				}
+				sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-see",
+						MessageFormat.format("Siehe: {0}.", CollectionHelper.toCSVString(lstRefs, ","))));
+			}
+			
+			if (!theIssueType.getRulesref().isEmpty()) {
+				List<String> lstRefs = new ArrayList<>();
+				for (RefType theRefType : theIssueType.getRulesref()) {
+					RuleContentType theRuleContentType = RuleTypeHelper.getContentType((RuleType) theRefType.getIdref(), theLanguage);
+					lstRefs.add(RuleTypeHelper.getLongTextID(theRuleContentType, theIssueDocumentType));
+				}
+				sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-see",
+						MessageFormat.format("Regel{0,choice,1#|1<n}: {1}.", lstRefs.size(), CollectionHelper.toCSVString(lstRefs, ","))));
+			}
+			
+			sbReturn.append(RevealMarkup.SLIDE_END);
+			
+			// third slide: rules
+			if (!theIssueType.getRulesref().isEmpty()) {
+				sbReturn.append(RevealMarkup.SLIDE_START);
+				
+				for (RefType theRefType : theIssueType.getRulesref()) {
+					RuleContentType theRuleContentType = RuleTypeHelper.getContentType((RuleType) theRefType.getIdref(), theLanguage);
+					
+					sbReturn.append(String.format(RevealMarkup.getHeadingToken(3), 
+							MessageFormat.format("Regel {0}{1}", 
+									RuleTypeHelper.getLongTextID(theRuleContentType, theIssueDocumentType),
+									(theRuleContentType.getTitle() == null) ? "" : MessageFormat.format(": {0}", theRuleContentType.getTitle()))));
+				
+					for (TextWithLinksType theText: theRuleContentType.getPara()) {
+						sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "", 
+								TextWithLinksTypeHelper.content2String(theText.getContent())));
+					}
+					
+				}
+				
+				sbReturn.append(RevealMarkup.SLIDE_END);
+			}
 			
 			// enclosing slide: issue
 			sbReturn.append(RevealMarkup.SLIDE_END);

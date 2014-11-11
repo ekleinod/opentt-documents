@@ -1,11 +1,11 @@
 
 package de.edgesoft.opentt.documents.issues.model;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -37,22 +37,25 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class VersionType {
 
-    @XmlElement(required = true)
-    protected BigInteger major;
-    @XmlElement(required = true)
-    protected BigInteger minor;
-    @XmlElement(required = true)
-    protected BigInteger patch;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter2 .class)
+    protected Integer major;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter2 .class)
+    protected Integer minor;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter2 .class)
+    protected Integer patch;
 
     /**
      * Gets the value of the major property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public BigInteger getMajor() {
+    public Integer getMajor() {
         return major;
     }
 
@@ -61,10 +64,10 @@ public class VersionType {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public void setMajor(BigInteger value) {
+    public void setMajor(Integer value) {
         this.major = value;
     }
 
@@ -73,10 +76,10 @@ public class VersionType {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public BigInteger getMinor() {
+    public Integer getMinor() {
         return minor;
     }
 
@@ -85,10 +88,10 @@ public class VersionType {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public void setMinor(BigInteger value) {
+    public void setMinor(Integer value) {
         this.minor = value;
     }
 
@@ -97,10 +100,10 @@ public class VersionType {
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public BigInteger getPatch() {
+    public Integer getPatch() {
         return patch;
     }
 
@@ -109,10 +112,10 @@ public class VersionType {
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public void setPatch(BigInteger value) {
+    public void setPatch(Integer value) {
         this.patch = value;
     }
 

@@ -54,6 +54,9 @@ public class IssuesToRevealTest {
 	 * @param theTestName test name (for junit output only)
 	 * @param theArguments test arguments
 	 * @param theResults test results
+	 * 
+	 * @version 0.2
+	 * @since 0.2
 	 */
 	public IssuesToRevealTest(String theTestName, String[] theArguments, Object[] theResults) {
 		arrArguments = Arrays.copyOf(theArguments, theArguments.length);
@@ -64,6 +67,9 @@ public class IssuesToRevealTest {
 	 * Definition of arguments and results.
 	 * 
 	 * @return collection of arguments and results.
+	 * 
+	 * @version 0.2
+	 * @since 0.2
 	 */
 	@Parameters(name="Testcase ''{0}'', Index {index}")
 	public static Collection<Object[]> arguments() {
@@ -94,6 +100,9 @@ public class IssuesToRevealTest {
 	
 	/**
 	 * Executes one test.
+	 * 
+	 * @version 0.2
+	 * @since 0.2
 	 */
 	@Test
 	public void testConvertAlternative() {

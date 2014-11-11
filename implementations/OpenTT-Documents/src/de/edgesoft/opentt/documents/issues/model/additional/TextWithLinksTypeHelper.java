@@ -32,7 +32,7 @@ import de.edgesoft.opentt.documents.issues.model.TextWithLinksType;
  * @version 0.2
  * @since 0.2
  */
-public class TextWithLinksTypeHC {
+public class TextWithLinksTypeHelper {
 	
 	/**
 	 * Converts content to string.

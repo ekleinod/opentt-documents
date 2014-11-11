@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -18,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;extension base="{}LangType">
  *       &lt;sequence>
+ *         &lt;element name="textid" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="subtitle" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="para" type="{}TextWithLinksType" maxOccurs="unbounded" minOccurs="0"/>
@@ -31,6 +33,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RuleContentType", propOrder = {
+    "textid",
     "title",
     "subtitle",
     "para"
@@ -39,9 +42,35 @@ public class RuleContentType
     extends LangType
 {
 
+    @XmlElement(required = true)
+    protected String textid;
     protected String title;
     protected String subtitle;
     protected List<TextWithLinksType> para;
+
+    /**
+     * Gets the value of the textid property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTextid() {
+        return textid;
+    }
+
+    /**
+     * Sets the value of the textid property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTextid(String value) {
+        this.textid = value;
+    }
 
     /**
      * Gets the value of the title property.

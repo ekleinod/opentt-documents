@@ -200,6 +200,10 @@ p.opentt-question {
 	margin-bottom: 1ex;
 }
 
+p.opentt-see {
+	font-size: smaller;
+}
+
 .reveal blockquote {
 	display: block;
 	position: relative;
