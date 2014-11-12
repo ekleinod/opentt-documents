@@ -1,7 +1,10 @@
 package de.edgesoft.opentt.documents.issues.model.ext;
 
+import java.util.List;
+
 import de.edgesoft.opentt.documents.issues.model.RuleContentType;
 import de.edgesoft.opentt.documents.issues.model.RuleType;
+import de.edgesoft.opentt.documents.issues.model.RulesType;
 
 
 /**
@@ -32,6 +35,34 @@ import de.edgesoft.opentt.documents.issues.model.RuleType;
  */
 public class RuleTypeExt extends RuleType {
 	
+	/** Parent rule. */
+	private RuleTypeExt rtParent = null;
+	
+	/** 
+	 * Sets parent rule.
+	 *
+	 * @param theParent new parent
+	 * 
+	 * @version 0.2
+	 * @since 0.2
+	 */
+	public void setParent(RuleTypeExt theParent) {
+		rtParent = theParent;
+	}
+	
+	/** 
+	 * Sets parents for all rules.
+	 *
+	 * @version 0.2
+	 * @since 0.2
+	 */
+	public void setParents() {
+		for (RuleType theRuleType : getRule()) {
+			((RuleTypeExt) theRuleType).setParent(this);
+			((RuleTypeExt) theRuleType).setParents();
+		}
+	}
+	
 	/**
 	 * Returns the content type for a language.
 	 * 
@@ -53,21 +84,110 @@ public class RuleTypeExt extends RuleType {
 	}
 	
 	/**
-	 * Returns the long text id for a rule.
+	 * Returns the combined text id for a rule, i.e. concatenated from parent text ids.
 	 * 
-	 * @param theIssueDocumentType issue document
-	 * @return long text id
+	 * I can't figure out, how to set the parent at add time of the rules,
+	 * because there is no add method but the getList.add approach.
+	 * 
+	 * Thus, I have to use the rules here to first set all parents
+	 * and then use them. I choose the parent approach in case there
+	 * is another possibility to set the parent, so the code has not
+	 * to be changed that much.
+	 * 
+	 * @param theLanguage language to use
+	 * @param theRules all rules
+	 * @return combined text id
 	 * 
 	 * @version 0.2
 	 * @since 0.2
 	 */
-	public String getLongTextID(String theLanguage) {
+	public String getCombinedTextID(String theLanguage, List<RulesType> theRules) {
+		for (RulesType theRulesType : theRules) {
+			for (RuleType theRuleType : theRulesType.getRule()) {
+				((RuleTypeExt) theRuleType).setParents();
+			}
+		}
+		return getCombinedTextID(theLanguage);
+	}
+	
+	/**
+	 * Returns the combined text id for a rule, i.e. concatenated from parent text ids.
+	 * 
+	 * Parent has to be set correctly before using this method.
+	 * 
+	 * @param theLanguage language to use
+	 * @return combined text id
+	 * 
+	 * @version 0.2
+	 * @since 0.2
+	 */
+	private String getCombinedTextID(String theLanguage) {
 		
-		if (getContentType(theLanguage) != null) {
-			return getContentType(theLanguage).getTextid();
+		StringBuilder sbReturn = new StringBuilder();
+		
+		if (rtParent != null) {
+			sbReturn.append(rtParent.getCombinedTextID(theLanguage));
 		}
 		
-		return null;
+		RuleContentType theContentType = getContentType(theLanguage);
+		
+		if ((theContentType != null) && (theContentType.getTextid() != null) && (!theContentType.getTextid().isEmpty())) {
+			if (sbReturn.length() > 0) {
+				sbReturn.append(".");
+			}
+			sbReturn.append(theContentType.getTextid());
+		}
+		
+		return sbReturn.toString();
+		
+	}
+	
+	/**
+	 * Returns the combined title for a rule, i.e. the title of the rule or the first title of a parent.
+	 * 
+	 * See {@link #getCombinedTextID(String, List)} for explanation.
+	 * 
+	 * @param theLanguage language to use
+	 * @param theRules all rules
+	 * @return combined title
+	 * 
+	 * @version 0.2
+	 * @since 0.2
+	 */
+	public String getCombinedTitle(String theLanguage, List<RulesType> theRules) {
+		for (RulesType theRulesType : theRules) {
+			for (RuleType theRuleType : theRulesType.getRule()) {
+				((RuleTypeExt) theRuleType).setParents();
+			}
+		}
+		return getCombinedTitle(theLanguage);
+	}
+	
+	/**
+	 * Returns the combined title for a rule, i.e. the title of the rule or the first title of a parent.
+	 * 
+	 * Parent has to be set correctly before using this method.
+	 * 
+	 * @param theLanguage language to use
+	 * @return combined title
+	 * 
+	 * @version 0.2
+	 * @since 0.2
+	 */
+	private String getCombinedTitle(String theLanguage) {
+
+		RuleContentType theContentType = getContentType(theLanguage);
+		
+		if ((theContentType != null) && (theContentType.getTitle() != null) && (!theContentType.getTitle().isEmpty())) {
+			return theContentType.getTitle();
+		}
+		
+		if (rtParent == null) {
+			return null;
+		}
+		
+		return rtParent.getCombinedTitle(theLanguage);
+		
 	}
 	
 }

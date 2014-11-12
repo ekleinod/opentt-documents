@@ -147,10 +147,10 @@ public class Issues2Reveal {
 			if (!theIssueType.getRulesref().isEmpty()) {
 				List<String> lstRefs = new ArrayList<>();
 				for (RefType theRefType : theIssueType.getRulesref()) {
-					lstRefs.add(((RuleTypeExt) theRefType.getIdref()).getLongTextID(theLanguage));
+					lstRefs.add(((RuleTypeExt) theRefType.getIdref()).getCombinedTextID(theLanguage, theIssueDocumentType.getRules()));
 				}
 				sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-see",
-						MessageFormat.format("Regel{0,choice,1#|1<n}: {1}.", lstRefs.size(), CollectionHelper.toCSVString(lstRefs, ","))));
+						MessageFormat.format("{0}.", CollectionHelper.toCSVString(lstRefs, ","))));
 			}
 			
 			sbReturn.append(RevealMarkup.SLIDE_END);
@@ -162,10 +162,11 @@ public class Issues2Reveal {
 				for (RefType theRefType : theIssueType.getRulesref()) {
 					RuleContentType theRuleContentType = ((RuleTypeExt) theRefType.getIdref()).getContentType(theLanguage);
 					
+					String sCombinedTitle = ((RuleTypeExt) theRefType.getIdref()).getCombinedTitle(theLanguage, theIssueDocumentType.getRules());
 					sbReturn.append(String.format(RevealMarkup.getHeadingToken(3), 
-							MessageFormat.format("Regel {0}{1}", 
-									((RuleTypeExt) theRefType.getIdref()).getLongTextID(theLanguage),
-									(theRuleContentType.getTitle() == null) ? "" : MessageFormat.format(": {0}", theRuleContentType.getTitle()))));
+							MessageFormat.format("{0}{1}", 
+									((RuleTypeExt) theRefType.getIdref()).getCombinedTextID(theLanguage, theIssueDocumentType.getRules()),
+									(sCombinedTitle == null) ? "" : MessageFormat.format(": {0}", sCombinedTitle))));
 				
 					for (TextWithLinksType theText: theRuleContentType.getPara()) {
 						sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "", 

@@ -39,8 +39,7 @@ along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
 	<xsd:complexType name="RulesType">
 		<xsd:sequence>
 			<xsd:element name="info" type="InfoType" minOccurs="1" maxOccurs="1" />
-			<xsd:element name="rule" type="RuleType" minOccurs="1" maxOccurs="unbounded">
-			</xsd:element>
+			<xsd:element name="rule" type="RuleType" minOccurs="1" maxOccurs="unbounded" />
 		</xsd:sequence>
 		<xsd:attribute ref="xml:base" />
 	</xsd:complexType>
