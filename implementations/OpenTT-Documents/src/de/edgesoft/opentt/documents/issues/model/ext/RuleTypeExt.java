@@ -33,9 +33,8 @@ import de.edgesoft.opentt.documents.issues.model.RuleType;
 public class RuleTypeExt extends RuleType {
 	
 	/**
-	 * Computes content type for a language.
+	 * Returns the content type for a language.
 	 * 
-	 * @param theRuleType rule type
 	 * @param theLanguage language to use
 	 * @return content type
 	 * 
@@ -48,6 +47,24 @@ public class RuleTypeExt extends RuleType {
 			if (theContentType.getLang().equals(theLanguage)) {
 				return theContentType;
 			}
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Returns the long text id for a rule.
+	 * 
+	 * @param theIssueDocumentType issue document
+	 * @return long text id
+	 * 
+	 * @version 0.2
+	 * @since 0.2
+	 */
+	public String getLongTextID(String theLanguage) {
+		
+		if (getContentType(theLanguage) != null) {
+			return getContentType(theLanguage).getTextid();
 		}
 		
 		return null;

@@ -17,7 +17,6 @@ import de.edgesoft.opentt.documents.issues.model.RefType;
 import de.edgesoft.opentt.documents.issues.model.RuleContentType;
 import de.edgesoft.opentt.documents.issues.model.TextWithLinksType;
 import de.edgesoft.opentt.documents.issues.model.ext.RuleTypeExt;
-import de.edgesoft.opentt.documents.issues.model.ext.RuleTypeHelper;
 import de.edgesoft.opentt.documents.issues.model.ext.TextWithLinksTypeHelper;
 
 /**
@@ -148,9 +147,7 @@ public class Issues2Reveal {
 			if (!theIssueType.getRulesref().isEmpty()) {
 				List<String> lstRefs = new ArrayList<>();
 				for (RefType theRefType : theIssueType.getRulesref()) {
-					RuleContentType theRuleContentType = ((RuleTypeExt) theRefType.getIdref()).getContentType(theLanguage);
-					System.err.println(theRefType.getIdref().getClass());
-					lstRefs.add(RuleTypeHelper.getLongTextID(theRuleContentType, theIssueDocumentType));
+					lstRefs.add(((RuleTypeExt) theRefType.getIdref()).getLongTextID(theLanguage));
 				}
 				sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-see",
 						MessageFormat.format("Regel{0,choice,1#|1<n}: {1}.", lstRefs.size(), CollectionHelper.toCSVString(lstRefs, ","))));
@@ -167,7 +164,7 @@ public class Issues2Reveal {
 					
 					sbReturn.append(String.format(RevealMarkup.getHeadingToken(3), 
 							MessageFormat.format("Regel {0}{1}", 
-									RuleTypeHelper.getLongTextID(theRuleContentType, theIssueDocumentType),
+									((RuleTypeExt) theRefType.getIdref()).getLongTextID(theLanguage),
 									(theRuleContentType.getTitle() == null) ? "" : MessageFormat.format(": {0}", theRuleContentType.getTitle()))));
 				
 					for (TextWithLinksType theText: theRuleContentType.getPara()) {
