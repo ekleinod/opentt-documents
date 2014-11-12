@@ -1,12 +1,42 @@
 \documentclass[english, ngerman]{scrartcl}
 
 \usepackage[author=schiri, font=droid, notitlepage]{kleinod}
+\usepackage{pict2e}
 
 \title{Fragen und Antworten}
 
+\newcommand{\itemsquare}[1][black]{%
+	\setlength{\unitlength}{1.4ex}%
+	\linethickness{1pt}
+	\begin{picture}(1,1)(0,0)%
+		\color{#1}%
+		\moveto(0, 0)%
+		\lineto(0, 1)%
+		\lineto(1, 1)%
+		\lineto(1, 0)%
+		\closepath\strokepath%
+	\end{picture}%
+}
+
+\newcommand{\itemsquarech}[1][black]{%
+	\setlength{\unitlength}{1.4ex}%
+	\linethickness{1pt}
+	\begin{picture}(1,1)(0,0)%
+		\color{#1}%
+		\moveto(0, 0)%
+		\lineto(0, 1)%
+		\lineto(1, 1)%
+		\lineto(1, 0)%
+		\closepath\strokepath%
+		\color{green}%
+		\Line(0,0)(1,1)
+		\Line(0,1)(1,0)
+	\end{picture}%
+}
+
 \usepackage{enumitem}
 \setlist{topsep=0mm plus .1pt, partopsep=0mm}
-\setlist[itemize,1]{label=\Square}
+\setlist[itemize,1]{label=\itemsquare}
 
 \begin{document}
 
@@ -23,7 +53,7 @@
 	\begin{itemize}
 		\item Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, müssen alle Spieler Hosen derselben Marke anziehen.
 			Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
-		\item[\Checkedbox] Die Einheitlichkeit wird nicht gestört, Mannschaft A kann spielen.
+		\item[\itemsquarech] Die Einheitlichkeit wird nicht gestört, Mannschaft A kann spielen.
 		\item Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, reicht es, die Markenkennzeichnungen zu verdecken, z.B. durch Klebeband.
 			Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
 	\end{itemize}
