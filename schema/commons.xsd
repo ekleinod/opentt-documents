@@ -78,6 +78,11 @@ along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
 	</xsd:complexType>
 
 	<xsd:complexType name="TextWithLinksType" mixed="true">
+		<xsd:annotation>
+			<xsd:appinfo>
+				<jxb:class implClass="de.edgesoft.opentt.documents.issues.model.ext.TextWithLinksTypeExt" />
+			</xsd:appinfo>
+		</xsd:annotation>
 		<xsd:choice minOccurs="0" maxOccurs="unbounded">
 			<xsd:element name="rulesref" type="RefType" />
 			<xsd:element name="documentref" type="RefType" />

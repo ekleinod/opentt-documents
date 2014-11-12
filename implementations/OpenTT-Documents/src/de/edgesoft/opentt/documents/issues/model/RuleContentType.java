@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import de.edgesoft.opentt.documents.issues.model.ext.TextWithLinksTypeExt;
 
 
 /**
@@ -46,6 +47,7 @@ public class RuleContentType
     protected String textid;
     protected String title;
     protected String subtitle;
+    @XmlElement(type = TextWithLinksTypeExt.class)
     protected List<TextWithLinksType> para;
 
     /**

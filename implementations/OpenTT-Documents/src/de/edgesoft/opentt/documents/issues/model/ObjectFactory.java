@@ -5,8 +5,8 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-
 import de.edgesoft.opentt.documents.issues.model.ext.RuleTypeExt;
+import de.edgesoft.opentt.documents.issues.model.ext.TextWithLinksTypeExt;
 
 
 /**
@@ -68,7 +68,7 @@ public class ObjectFactory {
      * 
      */
     public TextWithLinksType createTextWithLinksType() {
-        return new TextWithLinksType();
+        return new TextWithLinksTypeExt();
     }
 
     /**

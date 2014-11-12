@@ -1,13 +1,11 @@
 package de.edgesoft.opentt.documents.issues.model.ext;
 
 import java.io.Serializable;
-import java.util.List;
 
-import de.edgesoft.opentt.documents.DocumentsException;
 import de.edgesoft.opentt.documents.issues.model.TextWithLinksType;
 
 /**
- * Additional methods for {@link TextWithLinksType}.
+ * Extensions of {@link TextWithLinksType}.
  * 
  * ## Legal stuff
  * 
@@ -32,24 +30,21 @@ import de.edgesoft.opentt.documents.issues.model.TextWithLinksType;
  * @version 0.2
  * @since 0.2
  */
-public class TextWithLinksTypeHelper {
+public class TextWithLinksTypeExt extends TextWithLinksType {
 	
 	/**
-	 * Converts content to string.
+	 * Returns content as string.
 	 * 
-	 * @param theContent content
 	 * @return string
-	 * 
-	 * @throws DocumentsException if an error occurred during execution
 	 * 
 	 * @version 0.2
 	 * @since 0.2
 	 */
-	public static String content2String(List<Serializable> theContent) throws DocumentsException {
+	public String content2String() {
 		
 		StringBuilder sbReturn = new StringBuilder();
 		
-		for (Serializable theSerializable : theContent) {
+		for (Serializable theSerializable : getContent()) {
 			sbReturn.append(theSerializable.toString());
 			sbReturn.append(" ");
 		}

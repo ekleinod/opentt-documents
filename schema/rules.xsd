@@ -48,7 +48,7 @@ along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
 	<xsd:complexType name="RuleType">
 		<xsd:annotation>
 			<xsd:appinfo>
-				<jxb:class implClass="de.edgesoft.opentt.documents.issues.model.additional.RuleTypeEx" />
+				<jxb:class implClass="de.edgesoft.opentt.documents.issues.model.ext.RuleTypeExt" />
 			</xsd:appinfo>
 		</xsd:annotation>
 		<xsd:complexContent>

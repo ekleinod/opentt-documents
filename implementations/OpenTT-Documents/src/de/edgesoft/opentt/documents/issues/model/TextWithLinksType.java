@@ -41,9 +41,9 @@ import javax.xml.bind.annotation.XmlType;
 public class TextWithLinksType {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "authorref", type = JAXBElement.class, required = false),
         @XmlElementRef(name = "documentref", type = JAXBElement.class, required = false),
-        @XmlElementRef(name = "rulesref", type = JAXBElement.class, required = false)
+        @XmlElementRef(name = "rulesref", type = JAXBElement.class, required = false),
+        @XmlElementRef(name = "authorref", type = JAXBElement.class, required = false)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -66,8 +66,8 @@ public class TextWithLinksType {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link String }
      * {@link JAXBElement }{@code <}{@link RefType }{@code >}
+     * {@link String }
      * {@link JAXBElement }{@code <}{@link RefType }{@code >}
      * {@link JAXBElement }{@code <}{@link RefType }{@code >}
      * 
