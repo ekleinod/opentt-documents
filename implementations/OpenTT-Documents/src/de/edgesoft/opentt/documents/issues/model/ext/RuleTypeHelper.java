@@ -1,4 +1,4 @@
-package de.edgesoft.opentt.documents.issues.model.additional;
+package de.edgesoft.opentt.documents.issues.model.ext;
 
 import de.edgesoft.opentt.documents.DocumentsException;
 import de.edgesoft.opentt.documents.issues.model.IssueDocumentType;

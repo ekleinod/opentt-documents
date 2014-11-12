@@ -3,10 +3,13 @@ package de.edgesoft.opentt.documents.issues.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+
+import de.edgesoft.opentt.documents.issues.model.ext.RuleTypeExt;
 
 
 /**
@@ -40,6 +43,7 @@ public class RuleType
 
     @XmlElement(required = true)
     protected List<RuleContentType> rulecontent;
+    @XmlElement(type = RuleTypeExt.class)
     protected List<RuleType> rule;
 
     /**

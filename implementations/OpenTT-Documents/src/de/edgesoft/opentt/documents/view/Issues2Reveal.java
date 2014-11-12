@@ -15,10 +15,10 @@ import de.edgesoft.opentt.documents.issues.model.IssueDocumentType;
 import de.edgesoft.opentt.documents.issues.model.IssueType;
 import de.edgesoft.opentt.documents.issues.model.RefType;
 import de.edgesoft.opentt.documents.issues.model.RuleContentType;
-import de.edgesoft.opentt.documents.issues.model.RuleType;
 import de.edgesoft.opentt.documents.issues.model.TextWithLinksType;
-import de.edgesoft.opentt.documents.issues.model.additional.RuleTypeHelper;
-import de.edgesoft.opentt.documents.issues.model.additional.TextWithLinksTypeHelper;
+import de.edgesoft.opentt.documents.issues.model.ext.RuleTypeExt;
+import de.edgesoft.opentt.documents.issues.model.ext.RuleTypeHelper;
+import de.edgesoft.opentt.documents.issues.model.ext.TextWithLinksTypeHelper;
 
 /**
  * Converts issues to reveal slides.
@@ -148,7 +148,8 @@ public class Issues2Reveal {
 			if (!theIssueType.getRulesref().isEmpty()) {
 				List<String> lstRefs = new ArrayList<>();
 				for (RefType theRefType : theIssueType.getRulesref()) {
-					RuleContentType theRuleContentType = RuleTypeHelper.getContentType((RuleType) theRefType.getIdref(), theLanguage);
+					RuleContentType theRuleContentType = ((RuleTypeExt) theRefType.getIdref()).getContentType(theLanguage);
+					System.err.println(theRefType.getIdref().getClass());
 					lstRefs.add(RuleTypeHelper.getLongTextID(theRuleContentType, theIssueDocumentType));
 				}
 				sbReturn.append(String.format(RevealMarkup.PARAGRAPH, "opentt-see",
@@ -162,7 +163,7 @@ public class Issues2Reveal {
 				sbReturn.append(RevealMarkup.SLIDE_START);
 				
 				for (RefType theRefType : theIssueType.getRulesref()) {
-					RuleContentType theRuleContentType = RuleTypeHelper.getContentType((RuleType) theRefType.getIdref(), theLanguage);
+					RuleContentType theRuleContentType = ((RuleTypeExt) theRefType.getIdref()).getContentType(theLanguage);
 					
 					sbReturn.append(String.format(RevealMarkup.getHeadingToken(3), 
 							MessageFormat.format("Regel {0}{1}", 

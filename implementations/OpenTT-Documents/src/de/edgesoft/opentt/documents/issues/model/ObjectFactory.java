@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
 
+import de.edgesoft.opentt.documents.issues.model.ext.RuleTypeExt;
+
 
 /**
  * This object contains factory methods for each 
@@ -58,7 +60,7 @@ public class ObjectFactory {
      * 
      */
     public RuleType createRuleType() {
-        return new RuleType();
+        return new RuleTypeExt();
     }
 
     /**

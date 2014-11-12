@@ -1,13 +1,11 @@
-package de.edgesoft.opentt.documents.issues.model.additional;
+package de.edgesoft.opentt.documents.issues.model.ext;
 
-import java.io.Serializable;
-import java.util.List;
+import de.edgesoft.opentt.documents.issues.model.RuleContentType;
+import de.edgesoft.opentt.documents.issues.model.RuleType;
 
-import de.edgesoft.opentt.documents.DocumentsException;
-import de.edgesoft.opentt.documents.issues.model.TextWithLinksType;
 
 /**
- * Additional methods for {@link TextWithLinksType}.
+ * Extensions of {@link RuleType}.
  * 
  * ## Legal stuff
  * 
@@ -32,31 +30,29 @@ import de.edgesoft.opentt.documents.issues.model.TextWithLinksType;
  * @version 0.2
  * @since 0.2
  */
-public class TextWithLinksTypeHelper {
+public class RuleTypeExt extends RuleType {
 	
 	/**
-	 * Converts content to string.
+	 * Computes content type for a language.
 	 * 
-	 * @param theContent content
-	 * @return string
-	 * 
-	 * @throws DocumentsException if an error occurred during execution
+	 * @param theRuleType rule type
+	 * @param theLanguage language to use
+	 * @return content type
 	 * 
 	 * @version 0.2
 	 * @since 0.2
 	 */
-	public static String content2String(List<Serializable> theContent) throws DocumentsException {
+	public RuleContentType getContentType(String theLanguage) {
 		
-		StringBuilder sbReturn = new StringBuilder();
-		
-		for (Serializable theSerializable : theContent) {
-			sbReturn.append(theSerializable.toString());
-			sbReturn.append(" ");
+		for (RuleContentType theContentType : getRulecontent()) {
+			if (theContentType.getLang().equals(theLanguage)) {
+				return theContentType;
+			}
 		}
 		
-		return sbReturn.toString();
+		return null;
 	}
-
+	
 }
 
 /* EOF */

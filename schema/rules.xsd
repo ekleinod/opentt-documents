@@ -39,12 +39,18 @@ along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
 	<xsd:complexType name="RulesType">
 		<xsd:sequence>
 			<xsd:element name="info" type="InfoType" minOccurs="1" maxOccurs="1" />
-			<xsd:element name="rule" type="RuleType" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="rule" type="RuleType" minOccurs="1" maxOccurs="unbounded">
+			</xsd:element>
 		</xsd:sequence>
 		<xsd:attribute ref="xml:base" />
 	</xsd:complexType>
 
 	<xsd:complexType name="RuleType">
+		<xsd:annotation>
+			<xsd:appinfo>
+				<jxb:class implClass="de.edgesoft.opentt.documents.issues.model.additional.RuleTypeEx" />
+			</xsd:appinfo>
+		</xsd:annotation>
 		<xsd:complexContent>
 			<xsd:extension base="IDType">
 				<xsd:sequence>
