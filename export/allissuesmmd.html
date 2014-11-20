@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section><section id="regelfragen" class="titleslide slide level1"><h1>Regelfragen</h1></section><section id="start" class="slide level2">
+<h1>Start</h1>
+<p>Leicht bis schwierig</p>
+<p>Ekkart Kleinod</p>
+</section><section id="aufruf" class="slide level2">
+<h1>Aufruf</h1>
+<pre><code>pandoc -t revealjs -V theme=&quot;../../../theme/opentt&quot; -s allissuesmmd.mmd -o allissuesmmd.html</code></pre>
+</section></section>
+<section><section id="spielkleidung" class="titleslide slide level1"><h1>Spielkleidung</h1></section><section id="einheitliche-hosenröckchen" class="slide level2">
+<h1>Einheitliche Hosen/Röckchen</h1>
+<p>class=&quot;opentt-query&quot;</p>
+<p>Mannschaft A tritt in schwarzen Hosen zum Punktspiel an. Ein Spieler vom Mannschaft A hat Hosen der Marke Y im Gegensatz zu den anderen Spielern, die Hosen der Marke Y tragen. Die Hosen unterscheiden sich durch die Herstellerkennzeichnungen: ein &quot;Swoosh&quot; bei Marke X, drei Streifen bei Marke Y.</p>
+<p>class=&quot;opentt-question&quot;Wie entscheiden Sie als OSR über die Zulässigkeit der Kleidung?</p>
+<p>class=&quot;opentt-answer&quot;</p>
+<ul>
+<li>Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, müssen alle Spieler Hosen derselben Marke anziehen. Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.</li>
+<li>Die Einheitlichkeit wird nicht gestört, Mannschaft A kann spielen. <!-- .element: class="fragment highlight-green" --></li>
+<li>Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, reicht es, die Markenkennzeichnungen zu verdecken, z.B. durch Klebeband. Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht. {.class class=&quot;fragment highlight-green&quot;}</li>
+</ul>
+</section><section id="einheitliche-hosenröckchen-1" class="slide level2">
+<h1>Einheitliche Hosen/Röckchen</h1>
+<p>class=&quot;opentt-query&quot;</p>
+<p>Mannschaft A tritt in schwarzen Hosen zum Punktspiel an. Ein Spieler vom Mannschaft A hat Hosen der Marke Y im Gegensatz zu den anderen Spielern, die Hosen der Marke Y tragen. Die Hosen unterscheiden sich durch die Herstellerkennzeichnungen: ein &quot;Swoosh&quot; bei Marke X, drei Streifen bei Marke Y.</p>
+<blockquote>
+<p>Die Einheitlichkeit von Hosen bzw. Röckchen ist auch dann gegeben, wenn diese von unterschiedlichen Herstellern bezogen wurden, solange die Farben identisch sind. Herstellerapplikationen wie z.B. drei weiße Streifen, ein sog. Swoosh o.ä. stören die Einheitlichkeit nicht.</p>
+</blockquote>
+<p>class=&quot;opentt-see&quot;Siehe: Regelauslegungen für den Bereich des DTTB.</p>
+<p>class=&quot;opentt-see&quot;Regeln.Teil B.2.2.8.</p>
+</section><section id="regeln.teil-b.2.2.8-spielkleidung" class="slide level2">
+<h1>Regeln.Teil B.2.2.8: Spielkleidung</h1>
+<p>Während eines Mannschaftskampfes müssen die daran teilnehmenden Spieler einer Mannschaft einheitlich gekleidet sein. Das gleiche gilt bei Welt-, Olympischen und Paralympischen Titelwettbewerben für die Spieler eines Doppels, sofern sie dem gleichen Verband angehören. Von dieser Bestimmung können Socken, Schuhe sowie Anzahl, Größe, Farbe und Design von Werbung auf der Spielkleidung ausgenommen werden. Spieler desselben Verbands, die bei anderen internationalen Veranstaltungen ein Doppel bilden, können Kleidung verschiedener Hersteller tragen, falls die Grundfarben gleich sind und ihr Nationalverband dieses Verfahren genehmigt.</p>
+</section></section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: '../../../theme/opentt', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
