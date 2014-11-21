@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="pandoc" default="help" basedir=".">
+
+	<property name="pandoc:slides" value="allissuesmd" />
+
+	<property name="suffix:md" value="md" />
+	<property name="suffix:html" value="html" />
+	<property name="suffix:pdf" value="pdf" />
+
+	<target name="help" description="Shows help text.">
+		<echo>${ant.project.name}</echo>
+		<echo />
+		<echo>You can use the following targets:</echo>
+
+		<!-- show all available targets -->
+		<java classname="org.apache.tools.ant.Main">
+			<arg value="-projecthelp" />
+			<arg value="-buildfile" />
+			<arg value="${ant.file}" />
+		</java>
+	</target>
+
+	<target name="all" description="Generates all files.">
+		<antcall target="pandocreveal">
+			<param name="filename" value="${pandoc:slides}" />
+		</antcall>
+		<antcall target="pandocbeamer">
+			<param name="filename" value="${pandoc:slides}" />
+		</antcall>
+	</target>
+
+	<target name="pandocreveal">
+
+		<exec executable="pandoc">
+			<arg value="--standalone" />
+			<arg value="--to=revealjs" />
+			<arg value="--slide-level=2" />
+			<arg value="--variable=theme:&quot;../../../theme/opentt&quot;" />
+			<arg value="${filename}.${suffix:md}" />
+			<arg value="--output=${filename}.${suffix:html}" />
+		</exec>
+
+	</target>
+
+	<target name="pandocbeamer">
+
+		<exec executable="pandoc">
+			<arg value="--standalone" />
+			<arg value="--toc" />
+			<arg value="--to=beamer" />
+			<arg value="--slide-level=2" />
+			<arg value="${filename}.${suffix:md}" />
+			<arg value="--output=${filename}.${suffix:pdf}" />
+		</exec>
+
+	</target>
+
+</project>
+
+<!-- EOF -->
+

@@ -1,14 +1,9 @@
-# Regelfragen
-
-## Start
-
-Leicht bis schwierig
-
-Ekkart Kleinod
-
-## Aufruf
-
-	pandoc -t revealjs -V theme="../../../theme/opentt" -s allissuesmmd.mmd -o allissuesmmd.html
+---
+title: 'Regelfragen'
+subtitle: 'Leicht bis schwierig'
+author: 'Ekkart Kleinod'
+date: 21\. November 2014
+---
 
 # Spielkleidung
 
@@ -26,9 +21,9 @@ class="opentt-answer"
 
 - Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, müssen alle Spieler Hosen derselben Marke anziehen.
 Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
-- Die Einheitlichkeit wird nicht gestört, Mannschaft A kann spielen. <!-- .element: class="fragment highlight-green" -->
+- Die Einheitlichkeit wird nicht gestört, Mannschaft A kann spielen.  {.class class="fragment highlight-green"}
 - Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, reicht es, die Markenkennzeichnungen zu verdecken, z.B. durch Klebeband.
-Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht. {.class class="fragment highlight-green"}
+Wird dies nicht getan, erfolgt ein entsprechender Vermerk im OSR-Bericht.
 
 ## Einheitliche Hosen/Röckchen
 
