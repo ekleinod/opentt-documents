@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.edgesoft.edgeutils.collections.CollectionHelper;
-import de.edgesoft.edgeutils.reveal.RevealMarkup;
+import de.edgesoft.edgeutils.markup.reveal.RevealMarkup;
 import de.edgesoft.opentt.documents.DocumentsException;
 import de.edgesoft.opentt.documents.issues.model.AnswerType;
 import de.edgesoft.opentt.documents.issues.model.DocumentContentType;
