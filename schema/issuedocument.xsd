@@ -67,6 +67,7 @@ along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
 					<xsd:element name="longanswer" type="ParasType" minOccurs="0" maxOccurs="1" />
 					<xsd:element name="origin" type="ParasType" minOccurs="0" maxOccurs="1" />
 					<xsd:element name="qna" type="QNAType" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="note" type="ParasType" minOccurs="0" maxOccurs="unbounded" />
 					<xsd:element name="tag" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
 				</xsd:sequence>
 			</xsd:extension>
