@@ -87,6 +87,7 @@ along with OpenTT-Documents.  If not, see <http://www.gnu.org/licenses/>.
 			<xsd:element name="rulesref" type="RefType" />
 			<xsd:element name="documentref" type="RefType" />
 			<xsd:element name="authorref" type="RefType" />
+			<xsd:element name="emph" type="xsd:string" />
 		</xsd:choice>
 	</xsd:complexType>
 

@@ -82,7 +82,7 @@
 
 			<query>
 				<para>
-					Spieler \textbf{A} hält den Schläger beim Aufschlag unter dem Tisch und bringt diesen erst kurz vor dem Aufschlag über die Ebene der Spielfläche.
+					Spieler <emph>A</emph> hält den Schläger beim Aufschlag unter dem Tisch und bringt diesen erst kurz vor dem Aufschlag über die Ebene der Spielfläche.
 					Ansonsten ist der Aufschlag korrekt.
 				</para>
 			</query>
@@ -140,8 +140,8 @@
 
 			<query>
 				<para>
-	Sie bekommen als OSR die Doppelaufstellungen des Paarkreuzsystems der Mannschaften \textbf{A} und \textbf{B}.
-	Sie prüfen die Aufstellungen und bemerken, dass Mannschaft \textbf{B} die Doppelreihenfolge falsch aufgeschrieben hat.
+	Sie bekommen als OSR die Doppelaufstellungen des Paarkreuzsystems der Mannschaften <emph>A</emph> und <emph>B</emph>.
+	Sie prüfen die Aufstellungen und bemerken, dass Mannschaft <emph>B</emph> die Doppelreihenfolge falsch aufgeschrieben hat.
 				</para>
 			</query>
 
@@ -153,7 +153,7 @@
 					<para>Sie korrigieren die Reihenfolge stillschweigend.</para>
 				</answer>
 				<answer correct="true">
-					<para>Sie korrigieren die Reihenfolge und informieren den Mannschaftsführer von \textbf{B}.</para>
+					<para>Sie korrigieren die Reihenfolge und informieren den Mannschaftsführer von <emph>B</emph>.</para>
 				</answer>
 				<answer>
 					<para>Sie informieren beide Mannschaftsführer, beide dürfen die Aufstellung erneut frei wählen.</para>
@@ -172,7 +172,7 @@
 
 			<query>
 				<para>
-	Doppel \textbf{A/B} spielt gegen \textbf{X/Y}, im ersten Satz schlug \textbf{A} auf \textbf{X} auf.
+	Doppel <emph>A/B</emph> spielt gegen <emph>X/Y</emph>, im ersten Satz schlug <emph>A</emph> auf <emph>X</emph> auf.
 				</para>
 			</query>
 
@@ -182,13 +182,13 @@
 					<para>Wer schlägt im dritten Satz auf?</para>
 				</question>
 				<answer correct="true">
-					<para>\textbf{A/B} können den Aufschläger frei wählen.</para>
+					<para><emph>A/B</emph> können den Aufschläger frei wählen.</para>
 				</answer>
 				<answer>
-					<para>\textbf{A} muss aufschlagen, weil er im ersten Satz aufschlug.</para>
+					<para><emph>A</emph> muss aufschlagen, weil er im ersten Satz aufschlug.</para>
 				</answer>
 				<answer>
-					<para>\textbf{X/Y} wählen den Rückschläger, \textbf{A/B} müssen sich danach richten.</para>
+					<para><emph>X/Y</emph> wählen den Rückschläger, <emph>A/B</emph> müssen sich danach richten.</para>
 				</answer>
 			</qna>
 		</issuecontent>
@@ -201,7 +201,7 @@
 
 			<query>
 				<para>
-	Spieler \textbf{A} spielt mit einem Sandwich-Gummi (Noppen außen).
+	Spieler <emph>A</emph> spielt mit einem Sandwich-Gummi (Noppen außen).
 				</para>
 			</query>
 
@@ -285,9 +285,9 @@
 
 			<query>
 				<para>
-	Der SR entscheidet auf korrekten Aufschlag von Spieler \textbf{A}.
-	Spieler \textbf{B} moniert einen Netzaufschlag.
-	Sie als \textbf{OSR} haben ebenfalls deutlich einen Netzaufschlag gesehen.
+	Der SR entscheidet auf korrekten Aufschlag von Spieler <emph>A</emph>.
+	Spieler <emph>B</emph> moniert einen Netzaufschlag.
+	Sie als <emph>OSR</emph> haben ebenfalls deutlich einen Netzaufschlag gesehen.
 				</para>
 			</query>
 
@@ -320,7 +320,7 @@
 
 			<query>
 				<para>
-	Im ersten Doppel eines Mannschaftskampfes wird Spieler \textbf{A} mit einer gelben Karte verwarnt, weil er gegen den Tisch getreten hat.
+	Im ersten Doppel eines Mannschaftskampfes wird Spieler <emph>A</emph> mit einer gelben Karte verwarnt, weil er gegen den Tisch getreten hat.
 	In seinem nächsten Einzel wirft er nach einem verlorenen Satz den Schläger heftig auf den Tisch.
 				</para>
 			</query>
@@ -333,10 +333,10 @@
 					<para>Der SR zeigt ihm die gelbe Karte.</para>
 				</answer>
 				<answer correct="true">
-					<para>Der SR zeigt ihm gelb/rot und spricht seinem Gegner \textbf{X} einen Punkt zu.</para>
+					<para>Der SR zeigt ihm gelb/rot und spricht seinem Gegner <emph>X</emph> einen Punkt zu.</para>
 				</answer>
 				<answer>
-					<para>Der SR zeigt ihm gelb/rot und spricht seinem Gegner \textbf{X} zwei Punkte zu.</para>
+					<para>Der SR zeigt ihm gelb/rot und spricht seinem Gegner <emph>X</emph> zwei Punkte zu.</para>
 				</answer>
 				<answer>
 					<para>Der SR schreitet nicht ein, da kein Fehlverhalten vorliegt.</para>
@@ -392,7 +392,7 @@
 					<para>nur dem OSR.</para>
 				</answer>
 				<answer>
-					<para>dem OSR und den SPielern der gegnerischen Mannschaft.</para>
+					<para>dem OSR und den Spielern der gegnerischen Mannschaft.</para>
 				</answer>
 			</qna>
 		</issuecontent>
@@ -405,7 +405,7 @@
 
 			<query>
 				<para>
-	Spieler \textbf{A} berührt während des Ballwechsels mit dem Schläger den Netzpfosten.
+	Spieler <emph>A</emph> berührt während des Ballwechsels mit dem Schläger den Netzpfosten.
 				</para>
 			</query>
 
@@ -414,7 +414,7 @@
 					<para>Wie entscheidet der SR?</para>
 				</question>
 				<answer correct="true">
-					<para>Punkt für \textbf{X}.</para>
+					<para>Punkt für <emph>X</emph>.</para>
 				</answer>
 				<answer>
 					<para>Let.</para>
@@ -423,7 +423,7 @@
 					<para>Ballwechsel geht weiter.</para>
 				</answer>
 				<answer>
-					<para>Punkt für \textbf{A}.</para>
+					<para>Punkt für <emph>A</emph>.</para>
 				</answer>
 			</qna>
 		</issuecontent>
