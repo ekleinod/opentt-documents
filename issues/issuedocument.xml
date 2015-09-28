@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
-<issuedocument
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:noNamespaceSchemaLocation="../schema/issuedocument.xsd"
-		xmlns:xi="http://www.w3.org/2001/XInclude">
+<issuedocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/issuedocument.xsd" xmlns:xi="http://www.w3.org/2001/XInclude">
 
 	<xi:include href="../rules/rules.xml" parse="xml" />
 
 	<info>
 		<creation>2014-10-13T12:45:00.000+02:00</creation>
-		<lastchange>2015-09-22T13:14:00.000+02:00</lastchange>
+		<lastchange>2015-09-28T16:54:00.000+02:00</lastchange>
 		<version>
 			<major>0</major>
 			<minor>2</minor>
@@ -37,10 +34,14 @@
 				</para>
 			</longanswer>
 
-			<origin><para>Regelanfrage 2013</para></origin>
+			<origin>
+				<para>Regelanfrage 2013</para>
+			</origin>
 
 			<qna>
-				<question><para>Wie entscheiden Sie als OSR über die Zulässigkeit der Kleidung?</para></question>
+				<question>
+					<para>Wie entscheiden Sie als OSR über die Zulässigkeit der Kleidung?</para>
+				</question>
 				<answer>
 					<para>
 						Die Spielkleidung ist nicht einheitlich, um die Einheitlichkeit herzustellen, müssen alle Spieler Hosen derselben Marke anziehen.
@@ -87,12 +88,21 @@
 			</query>
 
 			<qna>
-			<question><para>Ist der Aufschlag korrekt?</para></question>
-		<answer correct="true"><para>korrekter Aufschlag.</para></answer>
-		<answer><para>kein korrekter Aufschlag, da der Gegenspieler den Schläger nicht sehen kann.</para></answer>
-		<answer><para>kein korrekter Aufschlag, da der Schiedsrichter den Schläger nicht sehen kann.</para></answer>
+				<question>
+					<para>Ist der Aufschlag korrekt?</para>
+				</question>
+				<answer correct="true">
+					<para>korrekter Aufschlag.</para>
+				</answer>
+				<answer>
+					<para>kein korrekter Aufschlag, da der Gegenspieler den Schläger nicht sehen kann.</para>
+				</answer>
+				<answer>
+					<para>kein korrekter Aufschlag, da der Schiedsrichter den Schläger nicht sehen kann.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="double.1">
 
@@ -110,11 +120,18 @@
 			</query>
 
 			<qna>
-			<question><para>Ist die Doppelaufstellung regelgerecht?</para></question>
-		<answer><para>Die Doppelaufstellung ist regelgerecht.</para></answer>
-		<answer correct="true"><para>Die Doppelaufstellung ist nicht regelgerecht.</para></answer>
+				<question>
+					<para>Ist die Doppelaufstellung regelgerecht?</para>
+				</question>
+				<answer>
+					<para>Die Doppelaufstellung ist regelgerecht.</para>
+				</answer>
+				<answer correct="true">
+					<para>Die Doppelaufstellung ist nicht regelgerecht.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="double.2">
 
@@ -129,13 +146,24 @@
 			</query>
 
 			<qna>
-				<question><para>Was tun Sie?</para></question>
-		<answer><para>Sie korrigieren die Reihenfolge stillschweigend.</para></answer>
-		<answer correct="true"><para>Sie korrigieren die Reihenfolge und informieren den Mannschaftsführer von \textbf{B}.</para></answer>
-		<answer><para>Sie informieren beide Mannschaftsführer, beide dürfen die Aufstellung erneut frei wählen.</para></answer>
-		<answer><para>Sie unternehmen nichts und tragen die Aufstellungen wie abgegeben ein.</para></answer>
+				<question>
+					<para>Was tun Sie?</para>
+				</question>
+				<answer>
+					<para>Sie korrigieren die Reihenfolge stillschweigend.</para>
+				</answer>
+				<answer correct="true">
+					<para>Sie korrigieren die Reihenfolge und informieren den Mannschaftsführer von \textbf{B}.</para>
+				</answer>
+				<answer>
+					<para>Sie informieren beide Mannschaftsführer, beide dürfen die Aufstellung erneut frei wählen.</para>
+				</answer>
+				<answer>
+					<para>Sie unternehmen nichts und tragen die Aufstellungen wie abgegeben ein.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="order.1">
 
@@ -150,12 +178,21 @@
 
 
 			<qna>
-				<question><para>Wer schlägt im dritten Satz auf?</para></question>
-		<answer correct="true"><para>\textbf{A/B} können den Aufschläger frei wählen.</para></answer>
-		<answer><para>\textbf{A} muss aufschlagen, weil er im ersten Satz aufschlug.</para></answer>
-		<answer><para>\textbf{X/Y} wählen den Rückschläger, \textbf{A/B} müssen sich danach richten.</para></answer>
+				<question>
+					<para>Wer schlägt im dritten Satz auf?</para>
+				</question>
+				<answer correct="true">
+					<para>\textbf{A/B} können den Aufschläger frei wählen.</para>
+				</answer>
+				<answer>
+					<para>\textbf{A} muss aufschlagen, weil er im ersten Satz aufschlug.</para>
+				</answer>
+				<answer>
+					<para>\textbf{X/Y} wählen den Rückschläger, \textbf{A/B} müssen sich danach richten.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="rubber.1">
 
@@ -169,13 +206,24 @@
 			</query>
 
 			<qna>
-				<question><para>Die Dicke des Noppengummis</para></question>
-		<answer><para>beliebig.</para></answer>
-		<answer correct="true"><para>nur bis max. 2 mm regelgerecht.</para></answer>
-		<answer><para>abhängig von der Dicke des Schwamms.</para></answer>
-		<answer><para>unerheblich; gemessen wird lediglich die Dicke des Schwamms.</para></answer>
+				<question>
+					<para>Die Dicke des Noppengummis</para>
+				</question>
+				<answer>
+					<para>beliebig.</para>
+				</answer>
+				<answer correct="true">
+					<para>nur bis max. 2 mm regelgerecht.</para>
+				</answer>
+				<answer>
+					<para>abhängig von der Dicke des Schwamms.</para>
+				</answer>
+				<answer>
+					<para>unerheblich; gemessen wird lediglich die Dicke des Schwamms.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="obstruction.1">
 
@@ -189,12 +237,21 @@
 			</query>
 
 			<qna>
-				<question><para>Wie entscheiden Sie?</para></question>
-		<answer><para>Punkt für den Aufschläger.</para></answer>
-		<answer><para>Punkt für den Rückschläger.</para></answer>
-		<answer correct="true"><para>Let.</para></answer>
+				<question>
+					<para>Wie entscheiden Sie?</para>
+				</question>
+				<answer>
+					<para>Punkt für den Aufschläger.</para>
+				</answer>
+				<answer>
+					<para>Punkt für den Rückschläger.</para>
+				</answer>
+				<answer correct="true">
+					<para>Let.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="service.2">
 
@@ -202,13 +259,24 @@
 			<title>Aufschlag</title>
 
 			<qna>
-				<question><para>Für wen darf der Ball während der gesamten Aufschlagphase nicht verdeckt sein?</para></question>
-		<answer><para>Für den Schiedsrichter.</para></answer>
-		<answer correct="true"><para>Für den Rückschläger.</para></answer>
-		<answer><para>Für den Schiedsrichter und den Schiedsrichter-Assistenten.</para></answer>
-		<answer><para>Sowohl für den Schiedsrichter und den Schiedsrichter-Assistenten, als auch für den Rückschläger.</para></answer>
+				<question>
+					<para>Für wen darf der Ball während der gesamten Aufschlagphase nicht verdeckt sein?</para>
+				</question>
+				<answer>
+					<para>Für den Schiedsrichter.</para>
+				</answer>
+				<answer correct="true">
+					<para>Für den Rückschläger.</para>
+				</answer>
+				<answer>
+					<para>Für den Schiedsrichter und den Schiedsrichter-Assistenten.</para>
+				</answer>
+				<answer>
+					<para>Sowohl für den Schiedsrichter und den Schiedsrichter-Assistenten, als auch für den Rückschläger.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="netservice.1">
 
@@ -224,15 +292,26 @@
 			</query>
 
 			<qna>
-				<question><para>Was tun Sie?</para></question>
-		<answer><para>Sie als OSR korrigieren die Entscheidung des SR auf Wiederholung.</para></answer>
-		<answer correct="true"><para>Sie als OSR lassen die Entscheidung des SR bestehen.</para></answer>
-		<answer><para>Sie als OSR bewegen den SR dazu, auf Wiederholung zu entscheiden.</para></answer>
+				<question>
+					<para>Was tun Sie?</para>
+				</question>
+				<answer>
+					<para>Sie als OSR korrigieren die Entscheidung des SR auf Wiederholung.</para>
+				</answer>
+				<answer correct="true">
+					<para>Sie als OSR lassen die Entscheidung des SR bestehen.</para>
+				</answer>
+				<answer>
+					<para>Sie als OSR bewegen den SR dazu, auf Wiederholung zu entscheiden.</para>
+				</answer>
 			</qna>
 
-		<note><para>OSR darf nur Regelentscheidungen abändern, keine Tatsachenentscheidungen</para></note>
+			<note>
+				<para>OSR darf nur Regelentscheidungen abändern, keine Tatsachenentscheidungen</para>
+			</note>
 
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="warning.1">
 
@@ -243,18 +322,28 @@
 				<para>
 	Im ersten Doppel eines Mannschaftskampfes wird Spieler \textbf{A} mit einer gelben Karte verwarnt, weil er gegen den Tisch getreten hat.
 	In seinem nächsten Einzel wirft er nach einem verlorenen Satz den Schläger heftig auf den Tisch.
-
 				</para>
 			</query>
 
 			<qna>
-				<question><para>Was tut der SR?</para></question>
-		<answer><para>Der SR zeigt ihm die gelbe Karte.</para></answer>
-		<answer correct="true"><para>Der SR zeigt ihm gelb/rot und spricht seinem Gegner \textbf{X} einen Punkt zu.</para></answer>
-		<answer><para>Der SR zeigt ihm gelb/rot und spricht seinem Gegner \textbf{X} zwei Punkte zu.</para></answer>
-		<answer><para>Der SR schreitet nicht ein, da kein Fehlverhalten vorliegt.</para></answer>
+				<question>
+					<para>Was tut der SR?</para>
+				</question>
+				<answer>
+					<para>Der SR zeigt ihm die gelbe Karte.</para>
+				</answer>
+				<answer correct="true">
+					<para>Der SR zeigt ihm gelb/rot und spricht seinem Gegner \textbf{X} einen Punkt zu.</para>
+				</answer>
+				<answer>
+					<para>Der SR zeigt ihm gelb/rot und spricht seinem Gegner \textbf{X} zwei Punkte zu.</para>
+				</answer>
+				<answer>
+					<para>Der SR schreitet nicht ein, da kein Fehlverhalten vorliegt.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="playorder.1">
 
@@ -271,12 +360,21 @@
 
 
 			<qna>
-				<question><para>Was ist zu tun?</para></question>
-		<answer><para>Seitenwechsel; Satz wird bei 5:2 neu aufgenommen.</para></answer>
-		<answer correct="true"><para>Seitenwechsel; Satz wird bei 10:6 fortgeführt.</para></answer>
-		<answer><para>Kein Seitenwechsel mehr, da das Spiel ohnehin gleich zu Ende ist.</para></answer>
+				<question>
+					<para>Was ist zu tun?</para>
+				</question>
+				<answer>
+					<para>Seitenwechsel; Satz wird bei 5:2 neu aufgenommen.</para>
+				</answer>
+				<answer correct="true">
+					<para>Seitenwechsel; Satz wird bei 10:6 fortgeführt.</para>
+				</answer>
+				<answer>
+					<para>Kein Seitenwechsel mehr, da das Spiel ohnehin gleich zu Ende ist.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="team.1">
 
@@ -284,12 +382,21 @@
 			<title>Mannschaftsmeldung</title>
 
 			<qna>
-				<question><para>Wem muss in einem Spiel der Oberliga die genehmigte Mannschaftsmeldung vorgelegt werden?</para></question>
-		<answer correct="true"><para>dem OSR und dem gegnerischen Mannschaftsführer, sofern dieser es verlangt.</para></answer>
-		<answer><para>nur dem OSR.</para></answer>
-		<answer><para>dem OSR und den SPielern der gegnerischen Mannschaft.</para></answer>
+				<question>
+					<para>Wem muss in einem Spiel der Oberliga die genehmigte Mannschaftsmeldung vorgelegt werden?</para>
+				</question>
+				<answer correct="true">
+					<para>dem OSR und dem gegnerischen Mannschaftsführer, sofern dieser es verlangt.</para>
+				</answer>
+				<answer>
+					<para>nur dem OSR.</para>
+				</answer>
+				<answer>
+					<para>dem OSR und den SPielern der gegnerischen Mannschaft.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<issue id="net.1">
 
@@ -303,13 +410,24 @@
 			</query>
 
 			<qna>
-			<question><para>Wie entscheidet der SR?</para></question>
-		<answer correct="true"><para>Punkt für \textbf{X}.</para></answer>
-		<answer><para>Let.</para></answer>
-		<answer><para>Ballwechsel geht weiter.</para></answer>
-		<answer><para>Punkt für \textbf{A}.</para></answer>
+				<question>
+					<para>Wie entscheidet der SR?</para>
+				</question>
+				<answer correct="true">
+					<para>Punkt für \textbf{X}.</para>
+				</answer>
+				<answer>
+					<para>Let.</para>
+				</answer>
+				<answer>
+					<para>Ballwechsel geht weiter.</para>
+				</answer>
+				<answer>
+					<para>Punkt für \textbf{A}.</para>
+				</answer>
 			</qna>
-	</issuecontent></issue>
+		</issuecontent>
+	</issue>
 
 	<document id="dttb.regelauslegungen.2014">
 		<documentcontent lang="de">
